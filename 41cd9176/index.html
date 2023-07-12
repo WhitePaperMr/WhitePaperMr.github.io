@@ -135,6 +135,17 @@
 
 
 
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
 
 
 
@@ -211,13 +222,13 @@
 <p>* Line 1: A single integer, the maximum number of cows FJ can afford.</p>
 <h2 id="样例-1"><a class="markdownIt-Anchor" href="#样例-1"></a> 样例 #1</h2>
 <h3 id="样例输入-1"><a class="markdownIt-Anchor" href="#样例输入-1"></a> 样例输入 #1</h3>
-<pre class="line-numbers language-none"><code class="language-none">4 1 7 
+<pre class="language-none"><code class="language-none">4 1 7 
 3 2 
 2 2 
 8 1 
-4 3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+4 3</code></pre>
 <h3 id="样例输出-1"><a class="markdownIt-Anchor" href="#样例输出-1"></a> 样例输出 #1</h3>
-<pre class="line-numbers language-none"><code class="language-none">3<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-none"><code class="language-none">3</code></pre>
 <h2 id="提示"><a class="markdownIt-Anchor" href="#提示"></a> 提示</h2>
 <p>FJ has 4 cows, 1 coupon, and a budget of 7.</p>
 <p>FJ uses the coupon on cow 3 and buys cows 1, 2, and 3, for a total cost of 3 + 2 + 1 = 6.</p>
@@ -225,7 +236,7 @@
 <p>这很明显，是道贪心。</p>
 <p>上来作者表示先<s>骗分</s></p>
 <p>于是就写了下面这一串东西：</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;bits/stdc++.h></span></span>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;bits/stdc++.h></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 <span class="token keyword">const</span> <span class="token keyword">int</span> N<span class="token operator">=</span><span class="token number">5e4</span><span class="token operator">+</span><span class="token number">10</span><span class="token punctuation">;</span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">int</span> <span class="token expression"><span class="token keyword">long</span> <span class="token keyword">long</span></span></span>
@@ -286,7 +297,7 @@ priority_queue<span class="token operator">&lt;</span>cow<span class="token oper
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span></code></pre>
 <p>很不幸，虽然过了一个<code>substack</code>，但是依旧零分（不让骗分呜呜呜）。</p>
 <p>然后想想这个到底该怎么贪。</p>
 <p>有K张优惠券，如果只买K头牛的话，那么一定是买优惠价为前K的牛最优，这毋庸置疑。</p>
@@ -299,7 +310,7 @@ priority_queue<span class="token operator">&lt;</span>cow<span class="token oper
 <p>每次选出差价最小的（也就是优惠幅度最低的），然后把它的优惠券转移到还没有用优惠券C值最小的牛身上，这样总价值就是原来的加上最小的差价再加上最小的优惠价，</p>
 <p>然后拿它和购买最小原价的情况作比较价格，谁小就按谁的方式买。</p>
 <p><strong>代码：</strong></p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;bits/stdc++.h></span></span>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;bits/stdc++.h></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">LL</span> <span class="token expression"><span class="token keyword">long</span> <span class="token keyword">long</span></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">pa</span> <span class="token expression">pair<span class="token operator">&lt;</span>LL<span class="token punctuation">,</span><span class="token keyword">int</span><span class="token operator">></span></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
@@ -347,7 +358,7 @@ LL ans<span class="token punctuation">;</span>
 	<span class="token punctuation">&#125;</span>
 	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%lld\n"</span><span class="token punctuation">,</span>ans<span class="token punctuation">)</span><span class="token punctuation">;</span> 
 	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span></code></pre>
 <p><s>不开long long见祖宗</s></p>
 <hr />
 
