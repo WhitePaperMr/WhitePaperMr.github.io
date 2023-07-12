@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="zh-CN" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <meta name="keywords" content="OI">
+  
+  <meta name="author" content="FallingSakura" />
+  <meta name="description" content="An Academic Blog." />
+  
+  
+  <title>
+    
+      P2842 PigCountryKill 
+      
+      
+      |
+    
+     FallingCode
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/favicon.png">
+    <link rel="icon" href="/images/favicon.png">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1886449_67xjft27j1l.css" />
+  <!-- 代码块风格 -->
+  
+
+  <!-- jquery3.3.1 -->
+  
+    <script defer type="text/javascript" src="/plugins/jquery.min.js"></script>
+  
+
+  <!-- fancybox -->
+  
+    <link href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" rel="stylesheet">
+    <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+  
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img no-lazy src="https://cdn1.tianli0.top/gh/FallingSakura/Source@main/img/202306230955099.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">FallingSakura</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">Categories</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.10/dist/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">P2842 PigCountryKill</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+          2023-07-12 07:40:35
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="分类"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/OI/" title="OI">
+                    <b>#</b> OI
+                  </a>
+                </span>
+                
+                <span class="span--category">
+                  <a href="/categories/OI/Problem/" title="Problem">
+                    <b>#</b> Problem
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2482">洛谷题面</a><br />
+[幕布可读版](<a target="_blank" rel="noopener" href="https://mubu.com/doc/2707815814591da4">猪国杀 - 可读版本 - 幕布 (mubu.com)</a>)</p>
+</blockquote>
+<h1 id="题面"><a class="markdownIt-Anchor" href="#题面"></a> 题面</h1>
+<h2 id="sdoi2010-猪国杀"><a class="markdownIt-Anchor" href="#sdoi2010-猪国杀"></a> SDOI2010 猪国杀</h2>
+<h2 id="题目描述"><a class="markdownIt-Anchor" href="#题目描述"></a> 题目描述</h2>
+<h3 id="游戏背景"><a class="markdownIt-Anchor" href="#游戏背景"></a> 游戏背景</h3>
+<p>《猪国杀》是一种多猪牌类回合制游戏，一共有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span></span></span></span> 种角色：主猪，忠猪，反猪。每局游戏主猪有且只有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 只，忠猪和反猪可以有多只，每只猪扮演 $1 $ 种角色。</p>
+<h3 id="游戏目的"><a class="markdownIt-Anchor" href="#游戏目的"></a> 游戏目的</h3>
+<p>主猪 / <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext mathvariant="monospace">MP</mtext></mrow><annotation encoding="application/x-tex">\texttt{MP}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61111em;vertical-align:0em;"></span><span class="mord text"><span class="mord texttt">MP</span></span></span></span></span>：自己存活的情况下消灭所有的反猪。<br />
+忠猪 / <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext mathvariant="monospace">ZP</mtext></mrow><annotation encoding="application/x-tex">\texttt{ZP}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61111em;vertical-align:0em;"></span><span class="mord text"><span class="mord texttt">ZP</span></span></span></span></span>：不惜一切保护主猪，胜利条件与主猪相同。<br />
+反猪 / <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext mathvariant="monospace">FP</mtext></mrow><annotation encoding="application/x-tex">\texttt{FP}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61111em;vertical-align:0em;"></span><span class="mord text"><span class="mord texttt">FP</span></span></span></span></span>：杀死主猪。</p>
+<h3 id="游戏过程"><a class="markdownIt-Anchor" href="#游戏过程"></a> 游戏过程</h3>
+<p>游戏开始时，每个玩家手里都会有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>4</mn></mrow><annotation encoding="application/x-tex">4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4</span></span></span></span> 张牌，且体力上限和初始体力都是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>4</mn></mrow><annotation encoding="application/x-tex">4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4</span></span></span></span> 。</p>
+<p>开始游戏时，从主猪开始，按照逆时针方向（数据中就是按照编号从 $ 1 , 2, 3 \ldots n , 1 \ldots $ 的顺序）依次行动。</p>
+<p>每个玩家自己的回合可以分为 2 个阶段：</p>
+<ul>
+<li><strong>摸牌阶段</strong>：从牌堆顶部摸 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span> 张牌，依次放到手牌的最右边；</li>
+<li><strong>出牌阶段</strong>：你可以使用任意张牌，每次使用牌的时候都使用最靠左的能够使用的牌。当然，要满足如下规则：
+<ol>
+<li>如果没有猪哥连弩，每个出牌阶段只能使用 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 次「杀」来攻击；</li>
+<li>任何牌被使用后被弃置（武器是装备上）；被弃置的牌以后都不能再用，即与游戏无关。</li>
+</ol>
+</li>
+</ul>
+<h3 id="各种牌介绍"><a class="markdownIt-Anchor" href="#各种牌介绍"></a> 各种牌介绍</h3>
+<p>每张手牌用 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 个字母表示，字母代表牌的种类。</p>
+<h4 id="基本牌"><a class="markdownIt-Anchor" href="#基本牌"></a> 基本牌</h4>
+<ul>
+<li>
+<p>『桃 / <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext mathvariant="monospace">P</mtext></mrow><annotation encoding="application/x-tex">\texttt{P}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61111em;vertical-align:0em;"></span><span class="mord text"><span class="mord texttt">P</span></span></span></span></span>』在自己的回合内，如果自己的体力值不等于体力上限，那么使用 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 个桃可以为自己补充 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 点体力，否则不能使用桃；桃只能对自己使用；在自己的回合外，如果自己的血变为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 或者更低，那么也可以使用。</p>
+</li>
+<li>
+<p>『杀 / <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext mathvariant="monospace">K</mtext></mrow><annotation encoding="application/x-tex">\texttt{K}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61111em;vertical-align:0em;"></span><span class="mord text"><span class="mord texttt">K</span></span></span></span></span>』在自己的回合内，对攻击范围内除自己以外的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 名角色使用。如果没有被『闪』抵消，则造成 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 点伤害。无论有无武器，杀的攻击范围都是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>。</p>
+</li>
+<li>
+<p>『闪 / <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext mathvariant="monospace">D</mtext></mrow><annotation encoding="application/x-tex">\texttt{D}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61111em;vertical-align:0em;"></span><span class="mord text"><span class="mord texttt">D</span></span></span></span></span>』当你受到杀的攻击时，可以弃置 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 张闪来抵消杀的效果。</p>
+</li>
+</ul>
+<h4 id="锦囊牌"><a class="markdownIt-Anchor" href="#锦囊牌"></a> 锦囊牌</h4>
+<ul>
+<li>
+<p>『决斗 / <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext mathvariant="monospace">F</mtext></mrow><annotation encoding="application/x-tex">\texttt{F}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61111em;vertical-align:0em;"></span><span class="mord text"><span class="mord texttt">F</span></span></span></span></span>』出牌阶段，对除自己以外任意 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 名角色使用，由目标角色先开始，自己和目标角色轮流弃置 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 张杀，首先没有杀可弃的一方受到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 点伤害，另一方视为此伤害的来源。</p>
+</li>
+<li>
+<p>『南猪入侵 / <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext mathvariant="monospace">N</mtext></mrow><annotation encoding="application/x-tex">\texttt{N}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61111em;vertical-align:0em;"></span><span class="mord text"><span class="mord texttt">N</span></span></span></span></span>』出牌阶段，对除你以外所有角色使用，按逆时针顺序从使用者下家开始依次结算，除非弃置 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 张杀，否则受到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 点伤害。</p>
+</li>
+<li>
+<p>『万箭齐发 / <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext mathvariant="monospace">W</mtext></mrow><annotation encoding="application/x-tex">\texttt{W}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61111em;vertical-align:0em;"></span><span class="mord text"><span class="mord texttt">W</span></span></span></span></span>』和南猪入侵类似，不过要弃置的不是杀而是闪。</p>
+</li>
+<li>
+<p>『无懈可击 / <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext mathvariant="monospace">J</mtext></mrow><annotation encoding="application/x-tex">\texttt{J}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61111em;vertical-align:0em;"></span><span class="mord text"><span class="mord texttt">J</span></span></span></span></span>』在目标锦囊生效前抵消其效果。每次有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 张锦囊即将生效时，从使用这张锦囊的猪开始，按照逆时针顺序，依次得到使用无懈可击的机会；效果：用于决斗时，决斗无效并弃置；用于南猪入侵或万箭齐发时，当结算到某个角色时才能使用，当前角色不需弃置牌并且不会受到伤害（仅对 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 个角色产生效果）；用于无懈可击时，成为目标的无懈可击被无效。</p>
+</li>
+</ul>
+<h4 id="装备牌"><a class="markdownIt-Anchor" href="#装备牌"></a> 装备牌</h4>
+<ul>
+<li>『猪哥连弩 / <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext mathvariant="monospace">Z</mtext></mrow><annotation encoding="application/x-tex">\texttt{Z}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61111em;vertical-align:0em;"></span><span class="mord text"><span class="mord texttt">Z</span></span></span></span></span>』武器，攻击范围 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> ，出牌阶段你可以使用任意张杀; 同一时刻最多只能装 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 把武器；如果先前已经有了 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 把武器，那么之后再装武器的话，会弃置以前的武器来装现在的武器。</li>
+</ul>
+<h3 id="特殊事件及概念解释"><a class="markdownIt-Anchor" href="#特殊事件及概念解释"></a> 特殊事件及概念解释</h3>
+<ul>
+<li>
+<p><strong>伤害来源</strong>：杀、南猪入侵、万箭齐发的伤害来源均是使用该牌的猪，决斗的伤害来源如上；</p>
+</li>
+<li>
+<p><strong>距离</strong>：两只猪的距离定义为沿着逆时针方向间隔的猪数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">1</span></span></span></span> 。即初始时 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span> 的距离为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> ，但是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 的距离就是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 。注意一个角色的死亡会导致一些猪距离的改变；</p>
+</li>
+<li>
+<p><strong>玩家死亡</strong>：如果该玩家的体力降到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 或者更低，并且自己手中没有足够的桃使得自己的体力值回到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> ，那么就死亡了，死亡后所有的牌（装备区，手牌区）被弃置；</p>
+</li>
+<li>
+<p><strong>奖励与惩罚</strong>：反猪死亡时，最后一个伤害来源处（即使是反猪）立即摸 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span></span></span></span> 张牌。忠猪死亡时，如果最后一个伤害来源是主猪，那么主猪所有装备牌、手牌被弃置。</p>
+</li>
+</ul>
+<p>注意：一旦达成胜利条件，游戏立刻结束，因此即使会摸 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span></span></span></span> 张牌或者还有牌可以用也不用执行了。</p>
+<p>现在，我们已经知道每只猪的角色、手牌，还有牌堆初始情况，并且假设每个角色会按照如下的行为准则进行游戏，你需要做的就是告诉小猪 iPig 最后的结果。</p>
+<h3 id="几种行为"><a class="markdownIt-Anchor" href="#几种行为"></a> 几种行为</h3>
+<ul>
+<li><strong>献殷勤</strong>：使用无懈可击挡下南猪入侵、万箭齐发、决斗；使用无懈可击抵消表敌意；</li>
+<li><strong>表敌意</strong>：对某个角色使用杀、决斗；使用无懈可击抵消献殷勤；</li>
+<li><strong>跳忠</strong>：即通过行动表示自己是忠猪。跳忠行动就是对主猪或对某只已经跳忠的猪献殷勤，或者对某只已经跳反的猪表敌意；</li>
+<li><strong>跳反</strong>：即通过行动表示自己是反猪。跳反行动就是对主猪或对某只已经跳忠的猪表敌意，或者对某只已经跳反的猪献殷勤。</li>
+</ul>
+<p><strong>注意：忠猪不会跳反，反猪也不会跳忠；不管是忠猪还是反猪，能够跳必然跳</strong>。</p>
+<h3 id="行动准则"><a class="markdownIt-Anchor" href="#行动准则"></a> 行动准则</h3>
+<h4 id="共性"><a class="markdownIt-Anchor" href="#共性"></a> 共性</h4>
+<ul>
+<li>每个角色如果手里有桃且生命值未满，那么必然吃掉；</li>
+<li>有南猪入侵、万箭齐发、必然使用；有装备必然装上；</li>
+<li>受到杀时，有闪必然弃置；</li>
+<li>响应南猪入侵或者万箭齐发时候，有杀 / 闪必然弃置；</li>
+<li>不会对未表明身份的猪献殷勤（<strong>包括自己</strong>）。</li>
+</ul>
+<h4 id="特性"><a class="markdownIt-Anchor" href="#特性"></a> 特性</h4>
+<ul>
+<li>主猪：
+<ul>
+<li>主猪会认为「没有跳身份，且用南猪入侵 / 万箭齐发对自己造成伤害的猪」是<strong>类</strong>反猪（没伤害到不算，注意类反猪并没有表明身份），如果之后跳了，那么主猪会重新认识这只猪；</li>
+<li>对于每种表敌意的方式，对逆时针方向能够执行到的第一只类反猪或者已跳反猪表；如果没有，那么就不表敌意；</li>
+<li>决斗时会不遗余力弃置杀；</li>
+<li>如果能对已经跳忠的猪或自己献殷勤，那么一定献；如果能够对已经跳反的猪表敌意，那么一定表。</li>
+</ul>
+</li>
+<li>忠猪：
+<ul>
+<li>对于每种表敌意的方式，对「逆时针方向能够执行到的第一只已经跳反的猪」表，如果没有，那么就不表敌意；</li>
+<li>决斗时，如果对方是主猪，那么不会弃置杀，否则，会不遗余力弃置杀；</li>
+<li>如果有机会对主猪或者已经跳忠的猪献殷勤，那么一定献。</li>
+</ul>
+</li>
+<li>反猪：
+<ul>
+<li>对于每种表敌意的方式，如果有机会则对主猪表，否则，对「逆时针方向能够执行到的第一只已经跳忠的猪」表，如果没有，那么就不表敌意；</li>
+<li>决斗时会不遗余力弃置杀；</li>
+<li>如果有机会对已经跳反的猪献殷勤，那么一定献。</li>
+</ul>
+</li>
+</ul>
+<p>限于 iPig 只会用 P++ 语言写 A + B，他请你用 Pigcal (Pascal)、P © 或 P++ (C++) 语言来帮他预测最后的结果。</p>
+<h2 id="输入格式"><a class="markdownIt-Anchor" href="#输入格式"></a> 输入格式</h2>
+<p>输入文件第一行包含两个正整数 $ n $ $ (2 \leqslant n \leqslant 10) $ 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span> $ (m \leqslant 2000) $，分别代表玩家数和牌堆中牌的数量。数据保证牌的数量够用。</p>
+<p>接下来 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 行，每行 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>5</mn></mrow><annotation encoding="application/x-tex">5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span></span></span></span> 个字符串，依次表示对第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span> 只猪的角色和初始 $4 $ 张手牌描述。编号为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 的肯定是主猪。</p>
+<p>再接下来一行，一共 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span> 个字符串，按照从牌堆顶部到牌堆底部的顺序描述每张牌。</p>
+<p><strong>注意：所有的相邻的两个字符串都严格用 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 个空格隔开，行尾没有多余空格</strong>。</p>
+<h2 id="输出格式"><a class="markdownIt-Anchor" href="#输出格式"></a> 输出格式</h2>
+<p>输出数据第一行包含一个字符串代表游戏结果。如果是主猪胜利，那么输出 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext mathvariant="monospace">MP</mtext></mrow><annotation encoding="application/x-tex">\texttt{MP}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61111em;vertical-align:0em;"></span><span class="mord text"><span class="mord texttt">MP</span></span></span></span></span> ，否则输出 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext mathvariant="monospace">FP</mtext></mrow><annotation encoding="application/x-tex">\texttt{FP}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61111em;vertical-align:0em;"></span><span class="mord text"><span class="mord texttt">FP</span></span></span></span></span> 。数据保证游戏总会结束。</p>
+<p>接下来 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 行，第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span> 行是对第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span> 只猪的手牌描述（注意只需要输出手牌），按照手牌从左往右的顺序输出，相邻两张牌用 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 个空格隔开，行末尾没有多余空格。如果这只猪已阵亡，那么只要输出 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext mathvariant="monospace">DEAD</mtext></mrow><annotation encoding="application/x-tex">\texttt{DEAD}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61111em;vertical-align:0em;"></span><span class="mord text"><span class="mord texttt">DEAD</span></span></span></span></span> 即可。</p>
+<p><strong>注意：如果要输出手牌而没有手牌的话，那么只需输出 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 个空行</strong>。</p>
+<p><strong>由于数据问题，若牌堆已空，按照每次抽牌抽到的都是最后一张。</strong></p>
+<h2 id="样例-1"><a class="markdownIt-Anchor" href="#样例-1"></a> 样例 #1</h2>
+<h3 id="样例输入-1"><a class="markdownIt-Anchor" href="#样例输入-1"></a> 样例输入 #1</h3>
+<pre class="line-numbers language-none"><code class="language-none">3 10
+MP D D F F
+ZP N N N D
+FP J J J J
+F F D D J J F F K D<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="样例输出-1"><a class="markdownIt-Anchor" href="#样例输出-1"></a> 样例输出 #1</h3>
+<pre class="line-numbers language-none"><code class="language-none">FP
+DEAD
+DEAD
+J J J J J J D<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="提示"><a class="markdownIt-Anchor" href="#提示"></a> 提示</h2>
+<h3 id="样例解释"><a class="markdownIt-Anchor" href="#样例解释"></a> 样例解释</h3>
+<p>第一回合：</p>
+<ul>
+<li>主猪没有目标可以表敌意；</li>
+<li>接下来忠猪使用了 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span></span></span></span> 张南猪入侵，主猪掉了 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span></span></span></span> 点体力，并认为该角色为类反猪，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span></span></span></span> 号角色尽管手里有无懈可击，但是因为自己未表明身份，所以同样不能对自己用，乖乖掉 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span></span></span></span> 点体力；</li>
+</ul>
+<p>下一回合：</p>
+<ul>
+<li>反猪无牌可出；</li>
+<li>接下来主猪对着类反猪爆发，使用 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>4</mn></mrow><annotation encoding="application/x-tex">4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4</span></span></span></span> 张决斗，忠猪死亡，结果主猪弃掉所有牌；</li>
+<li>下来反猪摸到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 张杀直接杀死主猪获胜。</li>
+</ul>
+<h3 id="子任务"><a class="markdownIt-Anchor" href="#子任务"></a> 子任务</h3>
+<p>一共 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>20</mn></mrow><annotation encoding="application/x-tex">20</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">0</span></span></span></span> 组测试数据，每个点 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>5</mn></mrow><annotation encoding="application/x-tex">5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span></span></span></span> 分。</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>10</mn><mi mathvariant="normal">%</mi></mrow><annotation encoding="application/x-tex">10\%</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.80556em;vertical-align:-0.05556em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">%</span></span></span></span> 的数据没有锦囊牌，另外 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>20</mn><mi mathvariant="normal">%</mi></mrow><annotation encoding="application/x-tex">20\%</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.80556em;vertical-align:-0.05556em;"></span><span class="mord">2</span><span class="mord">0</span><span class="mord">%</span></span></span></span> 的数据没有无懈可击。</p>
+<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 📌 前言</h1>
+<p>题意就不描述了，是道超级恶心的大模拟</p>
+<p>断断续续手写了两个周又调了一天给过了</p>
+<p>要点的话洛谷题解和讨论也写的挺清楚的</p>
+<p>我就简单说下我踩得坑</p>
+<span id="more"></span>
+<h1 id="坑点"><a class="markdownIt-Anchor" href="#坑点"></a> 💣 坑点</h1>
+<ol>
+<li>模拟牌堆我一开始用的是队列但是发现不支持修改，后来改用链式前向星，但是太麻烦啦！于是果断改用数组~~（平平淡淡才是真）~~</li>
+<li>老老实实进行模拟，牌一张一张的看，不要摸到装备就装上什么的，容易出问题</li>
+<li>装上武器后记得重头看牌</li>
+<li>if条件多的时候记得用空格隔开</li>
+<li>牌组的输入是从上到下！</li>
+<li>注意一下字符串，字符，空格，换行符的读入</li>
+<li>结构体不要开太大，会MLE</li>
+<li>桃在自己的回合可以主动使用</li>
+<li>初始化和输入的顺序不要搞错了</li>
+<li>保持良好心态</li>
+</ol>
+<p>具体细节见代码注释（<em>我写了很详细的注释</em>）</p>
+<h1 id="代码"><a class="markdownIt-Anchor" href="#代码"></a> 📘 代码</h1>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;bits/stdc++.h></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">int</span> n<span class="token punctuation">,</span>m<span class="token punctuation">;</span><span class="token comment">//玩家数，牌堆中牌的数量</span>
+<span class="token keyword">char</span> Acard<span class="token punctuation">[</span><span class="token number">2010</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">char</span> me<span class="token punctuation">[</span><span class="token number">15</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">char</span> ss<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> fz<span class="token punctuation">;</span>
+<span class="token keyword">bool</span> ed<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token keyword">struct</span> <span class="token class-name">pppig</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> HP<span class="token punctuation">,</span>cnt<span class="token punctuation">;</span>
+    <span class="token keyword">char</span> SF<span class="token punctuation">;</span>
+    <span class="token keyword">bool</span> wq<span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token keyword">char</span> card<span class="token punctuation">[</span><span class="token number">2010</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> next<span class="token punctuation">,</span>last<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>P<span class="token punctuation">[</span><span class="token number">15</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token function">get_card</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span><span class="token keyword">int</span> y<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>y<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>m<span class="token punctuation">)</span> m<span class="token operator">++</span><span class="token punctuation">;</span>
+        P<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">.</span>card<span class="token punctuation">[</span><span class="token operator">++</span>P<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">.</span>cnt<span class="token punctuation">]</span><span class="token operator">=</span>Acard<span class="token punctuation">[</span>m<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        m<span class="token operator">--</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">bool</span> <span class="token function">put_J</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span><span class="token keyword">int</span> y<span class="token punctuation">,</span><span class="token keyword">int</span> z<span class="token punctuation">)</span><span class="token comment">//使用锦囊牌的人，被使用锦囊的人，是不是第一次（因为只有第一次是无懈掉锦囊牌，后面都是判断是否无懈掉无懈）</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> i<span class="token operator">=</span>x<span class="token punctuation">;</span><span class="token comment">//从使用无懈的这个人开始，后面依次有机会使用无懈</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>z<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>me<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token operator">==</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>SF<span class="token operator">||</span><span class="token punctuation">(</span>me<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token operator">==</span><span class="token char">'M'</span><span class="token operator">&amp;&amp;</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>SF<span class="token operator">==</span><span class="token char">'Z'</span><span class="token punctuation">)</span><span class="token operator">||</span><span class="token punctuation">(</span>me<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token operator">==</span><span class="token char">'Z'</span><span class="token operator">&amp;&amp;</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>SF<span class="token operator">==</span><span class="token char">'M'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">//我和y是一伙的，如果有J我就要帮它挡下</span>
+                <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;=</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>cnt<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
+                    <span class="token keyword">if</span><span class="token punctuation">(</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>card<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">==</span><span class="token char">'J'</span><span class="token punctuation">)</span>
+                    <span class="token punctuation">&#123;</span>
+                        P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>card<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span><span class="token char">'U'</span><span class="token punctuation">;</span>
+                        me<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>SF<span class="token punctuation">;</span>
+                        <span class="token keyword">return</span> <span class="token operator">!</span><span class="token function">put_J</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>x<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//i对使用锦囊牌的人使用了无懈可击，如果没有被无懈无懈掉的话，返回的就是0，！0就是1，那么我的这张无懈就生效了</span>
+                    <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">else</span><span class="token comment">//是否无懈上一张无懈</span>
+        <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>SF<span class="token operator">==</span><span class="token char">'M'</span><span class="token operator">||</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>SF<span class="token operator">==</span><span class="token char">'Z'</span><span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span> me<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token operator">==</span><span class="token char">'F'</span><span class="token punctuation">)</span><span class="token operator">||</span><span class="token punctuation">(</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>SF<span class="token operator">==</span><span class="token char">'F'</span><span class="token operator">&amp;&amp;</span><span class="token punctuation">(</span>me<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token operator">==</span><span class="token char">'M'</span><span class="token operator">||</span> me<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token operator">==</span><span class="token char">'Z'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">//如果不是一个阵营,那我就要想办法让上一个无懈失效（无懈掉上一个无懈）</span>
+                <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;=</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>cnt<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
+                    <span class="token keyword">if</span><span class="token punctuation">(</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>card<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">==</span><span class="token char">'J'</span><span class="token punctuation">)</span>
+                    <span class="token punctuation">&#123;</span>
+                        P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>card<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span><span class="token char">'U'</span><span class="token punctuation">;</span>
+                        me<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>SF<span class="token punctuation">;</span>
+                        <span class="token keyword">return</span> <span class="token operator">!</span><span class="token function">put_J</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>x<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//i对上一个使用无懈的人使用了无懈</span>
+                    <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        i<span class="token operator">=</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">==</span>x<span class="token punctuation">)</span> <span class="token keyword">break</span><span class="token punctuation">;</span><span class="token comment">//转了一圈都没有无懈</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span><span class="token comment">//上一张无懈/锦囊牌生效，当前这一张无懈没生效</span>
+    <span class="token comment">//函数返回false代表可以使用锦囊牌，返回true代表无懈生效，锦囊牌失效</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">void</span> <span class="token function">Kill</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span><span class="token keyword">int</span> y<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>cnt<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token comment">//我还有桃我不能死！</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>card<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span><span class="token char">'P'</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#123;</span>
+            P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>card<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token char">'U'</span><span class="token punctuation">;</span>
+            P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>HP<span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    P<span class="token punctuation">[</span>P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>next<span class="token punctuation">]</span><span class="token punctuation">.</span>last<span class="token operator">=</span>P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>last<span class="token punctuation">;</span>
+    P<span class="token punctuation">[</span>P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>last<span class="token punctuation">]</span><span class="token punctuation">.</span>next<span class="token operator">=</span>P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>SF<span class="token operator">==</span><span class="token char">'M'</span><span class="token punctuation">)</span><span class="token comment">//主公寄了</span>
+    <span class="token punctuation">&#123;</span>
+        ed<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>SF<span class="token operator">==</span><span class="token char">'F'</span><span class="token punctuation">)</span> fz<span class="token operator">--</span><span class="token punctuation">;</span><span class="token comment">//反贼-1</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>fz<span class="token punctuation">)</span><span class="token comment">//反贼寄光了</span>
+    <span class="token punctuation">&#123;</span>
+        ed<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>SF<span class="token operator">==</span><span class="token char">'F'</span><span class="token punctuation">)</span> <span class="token function">get_card</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//击杀反贼摸三张</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>SF<span class="token operator">==</span><span class="token char">'Z'</span><span class="token operator">&amp;&amp;</span>P<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">.</span>SF<span class="token operator">==</span><span class="token char">'M'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        P<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">.</span>cnt<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+        P<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">.</span>wq<span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">void</span> <span class="token function">put_K</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span><span class="token keyword">int</span> y<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>cnt<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>card<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span><span class="token char">'D'</span><span class="token punctuation">)</span><span class="token comment">//被攻击者有闪</span>
+        <span class="token punctuation">&#123;</span>
+            P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>card<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token char">'U'</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>HP<span class="token operator">--</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>HP<span class="token punctuation">)</span> <span class="token function">Kill</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">void</span> <span class="token function">put_F</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span><span class="token keyword">int</span> y<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">put_J</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>P<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">.</span>SF<span class="token operator">==</span><span class="token char">'M'</span><span class="token operator">&amp;&amp;</span>P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>SF<span class="token operator">==</span><span class="token char">'Z'</span><span class="token punctuation">)</span><span class="token comment">//忠臣自残</span>
+    <span class="token punctuation">&#123;</span>
+        P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>HP<span class="token operator">--</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>HP<span class="token punctuation">)</span> <span class="token function">Kill</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">int</span> i<span class="token punctuation">,</span>j<span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>cnt<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token comment">//找杀</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>card<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span><span class="token char">'K'</span><span class="token punctuation">)</span>
+            <span class="token punctuation">&#123;</span>
+                P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>card<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token char">'U'</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">></span>P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>cnt<span class="token punctuation">)</span>
+        <span class="token punctuation">&#123;</span>
+            P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>HP<span class="token operator">--</span><span class="token punctuation">;</span><span class="token comment">//找遍了也没找到杀</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>HP<span class="token punctuation">)</span> <span class="token function">Kill</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span>j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;=</span>P<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">.</span>cnt<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>P<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">.</span>card<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">==</span><span class="token char">'K'</span><span class="token punctuation">)</span>
+            <span class="token punctuation">&#123;</span>
+                P<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">.</span>card<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span><span class="token char">'U'</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>j<span class="token operator">></span>P<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">.</span>cnt<span class="token punctuation">)</span>
+        <span class="token punctuation">&#123;</span>
+            P<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">.</span>HP<span class="token operator">--</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>P<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">.</span>HP<span class="token punctuation">)</span> <span class="token function">Kill</span><span class="token punctuation">(</span>y<span class="token punctuation">,</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">void</span> <span class="token function">put_N</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> y<span class="token operator">=</span>P<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">.</span>next<span class="token punctuation">;</span>y<span class="token operator">!=</span>x<span class="token punctuation">;</span>y<span class="token operator">=</span>P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>next<span class="token punctuation">)</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">put_J</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">//没有被无懈可击</span>
+        <span class="token punctuation">&#123;</span>
+            <span class="token keyword">int</span> i<span class="token punctuation">;</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>cnt<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token comment">//第y只猪在找杀响应南蛮入侵</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>card<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span><span class="token char">'K'</span><span class="token punctuation">)</span><span class="token comment">//找到了</span>
+                <span class="token punctuation">&#123;</span>
+                    P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>card<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token char">'U'</span><span class="token punctuation">;</span><span class="token comment">//出出来</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">></span>P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>cnt<span class="token punctuation">)</span><span class="token comment">//找了一圈没找到</span>
+            <span class="token punctuation">&#123;</span>
+                P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>HP<span class="token operator">--</span><span class="token punctuation">;</span><span class="token comment">//扣血</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>SF<span class="token operator">==</span><span class="token char">'M'</span><span class="token operator">&amp;&amp;</span>me<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token operator">==</span><span class="token char">'U'</span><span class="token punctuation">)</span> me<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token operator">=</span><span class="token char">'L'</span><span class="token punctuation">;</span><span class="token comment">//如果未表明身份且AOE到了主就是类反</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>HP<span class="token punctuation">)</span> <span class="token function">Kill</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//判断击杀</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>ed<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">void</span> <span class="token function">put_W</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> y<span class="token operator">=</span>P<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">.</span>next<span class="token punctuation">;</span>y<span class="token operator">!=</span>x<span class="token punctuation">;</span>y<span class="token operator">=</span>P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>next<span class="token punctuation">)</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">put_J</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#123;</span>
+            <span class="token keyword">int</span> i<span class="token punctuation">;</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>cnt<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token comment">//找闪</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>card<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span><span class="token char">'D'</span><span class="token punctuation">)</span>
+                <span class="token punctuation">&#123;</span>
+                    P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>card<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token char">'U'</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">></span>P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>cnt<span class="token punctuation">)</span><span class="token comment">//没找到闪</span>
+            <span class="token punctuation">&#123;</span>
+                P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>HP<span class="token operator">--</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>SF<span class="token operator">==</span><span class="token char">'M'</span><span class="token operator">&amp;&amp;</span>me<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token operator">==</span><span class="token char">'U'</span><span class="token punctuation">)</span> me<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token operator">=</span><span class="token char">'L'</span><span class="token punctuation">;</span><span class="token comment">//如果未表明身份且AOE到了主就是类反</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>P<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span>HP<span class="token punctuation">)</span> <span class="token function">Kill</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>ed<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">void</span> <span class="token function">st</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment">//开始</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">char</span> now_card<span class="token punctuation">;</span>
+    ed<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>fz<span class="token punctuation">)</span> ed<span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">;</span><span class="token comment">//假如一开始就没有反</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>ed<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token punctuation">;</span>i<span class="token operator">=</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>next<span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token function">get_card</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">bool</span> kill<span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">;</span><span class="token comment">//还没出过杀</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;=</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>cnt<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>card<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">!=</span><span class="token char">'U'</span><span class="token punctuation">)</span><span class="token comment">//没有被使用过</span>
+            <span class="token punctuation">&#123;</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>HP<span class="token punctuation">)</span> <span class="token keyword">break</span><span class="token punctuation">;</span><span class="token comment">//死了就不用出牌</span>
+                now_card<span class="token operator">=</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>card<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>now_card<span class="token operator">==</span><span class="token char">'Z'</span><span class="token punctuation">)</span><span class="token comment">//诸葛连弩</span>
+                <span class="token punctuation">&#123;</span>
+                    P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>wq<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span>
+                    P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>card<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span><span class="token char">'U'</span><span class="token punctuation">;</span>
+                    j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+                    <span class="token keyword">continue</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>now_card<span class="token operator">==</span><span class="token char">'P'</span><span class="token punctuation">)</span><span class="token comment">//桃</span>
+                <span class="token punctuation">&#123;</span>
+                    <span class="token keyword">if</span><span class="token punctuation">(</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>HP<span class="token operator">&lt;</span><span class="token number">4</span><span class="token punctuation">)</span>
+                    <span class="token punctuation">&#123;</span>
+                        P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>HP<span class="token operator">++</span><span class="token punctuation">;</span>
+                        P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>card<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span><span class="token char">'U'</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">&#125;</span>
+                    <span class="token keyword">continue</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>now_card<span class="token operator">==</span><span class="token char">'K'</span><span class="token punctuation">)</span><span class="token comment">//杀</span>
+                <span class="token punctuation">&#123;</span>
+                    <span class="token keyword">if</span><span class="token punctuation">(</span>kill<span class="token operator">&amp;&amp;</span><span class="token operator">!</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>wq<span class="token punctuation">)</span> <span class="token keyword">continue</span><span class="token punctuation">;</span><span class="token comment">//出过杀且没有武器</span>
+                    <span class="token keyword">if</span><span class="token punctuation">(</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>SF<span class="token operator">==</span><span class="token char">'M'</span><span class="token operator">&amp;&amp;</span>me<span class="token punctuation">[</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>next<span class="token punctuation">]</span><span class="token operator">!=</span><span class="token char">'F'</span><span class="token operator">&amp;&amp;</span>me<span class="token punctuation">[</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>next<span class="token punctuation">]</span><span class="token operator">!=</span><span class="token char">'L'</span><span class="token punctuation">)</span> <span class="token keyword">continue</span><span class="token punctuation">;</span><span class="token comment">//是主但是下家既不是类也不是反</span>
+                    <span class="token keyword">if</span><span class="token punctuation">(</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>SF<span class="token operator">==</span><span class="token char">'Z'</span><span class="token operator">&amp;&amp;</span>me<span class="token punctuation">[</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>next<span class="token punctuation">]</span><span class="token operator">!=</span><span class="token char">'F'</span><span class="token punctuation">)</span> <span class="token keyword">continue</span><span class="token punctuation">;</span><span class="token comment">//是忠但下家不是反</span>
+                    <span class="token keyword">if</span><span class="token punctuation">(</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>SF<span class="token operator">==</span><span class="token char">'F'</span><span class="token operator">&amp;&amp;</span>me<span class="token punctuation">[</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>next<span class="token punctuation">]</span><span class="token operator">!=</span><span class="token char">'M'</span><span class="token operator">&amp;&amp;</span>me<span class="token punctuation">[</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>next<span class="token punctuation">]</span><span class="token operator">!=</span><span class="token char">'Z'</span><span class="token punctuation">)</span> <span class="token keyword">continue</span><span class="token punctuation">;</span><span class="token comment">//是反但下家不是忠也不是主</span>
+                    P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>card<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span><span class="token char">'U'</span><span class="token punctuation">;</span><span class="token comment">//可以出</span>
+                    <span class="token function">put_K</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>next<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    me<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>SF<span class="token punctuation">;</span><span class="token comment">//出杀即代表暴露身份</span>
+                    kill<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span><span class="token comment">//出过杀了</span>
+                    <span class="token keyword">if</span><span class="token punctuation">(</span>ed<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+                    <span class="token keyword">continue</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>now_card<span class="token operator">==</span><span class="token char">'F'</span><span class="token punctuation">)</span><span class="token comment">//决斗</span>
+                <span class="token punctuation">&#123;</span>
+                    <span class="token keyword">if</span><span class="token punctuation">(</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>SF<span class="token operator">==</span><span class="token char">'F'</span><span class="token punctuation">)</span>
+                    <span class="token punctuation">&#123;</span>
+                        P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>card<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span><span class="token char">'U'</span><span class="token punctuation">;</span>
+                        <span class="token function">put_F</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//是反贼那就和主公决斗</span>
+                        me<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>SF<span class="token punctuation">;</span><span class="token comment">//暴漏身份</span>
+                        <span class="token keyword">if</span><span class="token punctuation">(</span>ed<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+                        j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+                        <span class="token keyword">continue</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">&#125;</span>
+                    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> k<span class="token operator">=</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>next<span class="token punctuation">;</span>k<span class="token operator">!=</span>i<span class="token punctuation">;</span>k<span class="token operator">=</span>P<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">.</span>next<span class="token punctuation">)</span>
+                        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>SF<span class="token operator">==</span><span class="token char">'M'</span><span class="token operator">&amp;&amp;</span><span class="token punctuation">(</span>me<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token operator">==</span><span class="token char">'L'</span><span class="token operator">||</span>me<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token operator">==</span><span class="token char">'F'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">||</span><span class="token punctuation">(</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>SF<span class="token operator">==</span><span class="token char">'Z'</span><span class="token operator">&amp;&amp;</span>me<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token operator">==</span><span class="token char">'F'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">//主和反或类决斗，忠和反决斗</span>
+                        <span class="token punctuation">&#123;</span>
+                            P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>card<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span><span class="token char">'U'</span><span class="token punctuation">;</span>
+                            <span class="token function">put_F</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                            me<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>SF<span class="token punctuation">;</span>
+                            <span class="token keyword">if</span><span class="token punctuation">(</span>ed<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+                            j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+                            <span class="token keyword">break</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">&#125;</span>
+                    <span class="token keyword">continue</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>now_card<span class="token operator">==</span><span class="token char">'N'</span><span class="token punctuation">)</span><span class="token comment">//南蛮入侵</span>
+                <span class="token punctuation">&#123;</span>
+                    P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>card<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span><span class="token char">'U'</span><span class="token punctuation">;</span>
+                    <span class="token function">put_N</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">if</span><span class="token punctuation">(</span>ed<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+                    j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+                    <span class="token keyword">continue</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>now_card<span class="token operator">==</span><span class="token char">'W'</span><span class="token punctuation">)</span><span class="token comment">//南蛮入侵</span>
+                <span class="token punctuation">&#123;</span>
+                    P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>card<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span><span class="token char">'U'</span><span class="token punctuation">;</span>
+                    <span class="token function">put_W</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">if</span><span class="token punctuation">(</span>ed<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+                    j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+                    <span class="token keyword">continue</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>   
+    <span class="token comment">// freopen("P2482_1.in","r",stdin);</span>
+    <span class="token comment">// freopen("out.out","w",stdout);</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d %d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>n<span class="token punctuation">,</span><span class="token operator">&amp;</span>m<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>next<span class="token operator">=</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
+        P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>last<span class="token operator">=</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    P<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">.</span>next<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>P<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>last<span class="token operator">=</span>n<span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+        me<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token char">'U'</span><span class="token punctuation">;</span>
+    me<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token char">'M'</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span><span class="token number">2010</span><span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
+            P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>card<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span><span class="token char">'U'</span><span class="token punctuation">;</span>
+        <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%s"</span><span class="token punctuation">,</span>ss<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>SF<span class="token operator">=</span>ss<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;=</span><span class="token number">4</span><span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#123;</span>
+            <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%s"</span><span class="token punctuation">,</span>ss<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>card<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span>ss<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>HP<span class="token operator">=</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>cnt<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>SF<span class="token operator">==</span><span class="token char">'F'</span><span class="token punctuation">)</span> fz<span class="token operator">++</span><span class="token punctuation">;</span>
+        P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>wq<span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>m<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%s"</span><span class="token punctuation">,</span>ss<span class="token punctuation">)</span><span class="token punctuation">,</span>Acard<span class="token punctuation">[</span>m<span class="token operator">-</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span>ss<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token function">st</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//开始</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>P<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>HP<span class="token operator">&lt;=</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"FP\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//判断谁赢了</span>
+    <span class="token keyword">else</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"MP\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>HP<span class="token operator">&lt;=</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"DEAD\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;=</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>cnt<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token comment">//输出牌</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>card<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">!=</span><span class="token char">'U'</span><span class="token punctuation">)</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%c "</span><span class="token punctuation">,</span>P<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>card<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>WA的万紫千红</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://falling-sakura1-1316699389.cos.ap-nanjing.myqcloud.com/image/202303182038983.webp" alt="@EW([N8[]]FLQX3`J_G7BNC.webp" /></p>
+<p>以及<strong>AC</strong></p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://falling-sakura1-1316699389.cos.ap-nanjing.myqcloud.com/image/202303182039136.webp" alt="_YM51JHXUVX%W`}T.webp" /></p>
+<hr />
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/34778/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+              2023-07-12 07:40:35
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="分类"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/OI/" title="OI">
+                        <b>#</b> OI
+                      </a>
+                    </span>
+                    
+                    <span class="span--category">
+                      <a href="/categories/OI/Problem/" title="Problem">
+                        <b>#</b> Problem
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/48659/" target="_self">
+                <span>下一页</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E9%9D%A2"><span class="toc-text"> 题面</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#sdoi2010-%E7%8C%AA%E5%9B%BD%E6%9D%80"><span class="toc-text"> SDOI2010 猪国杀</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="toc-text"> 题目描述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E8%83%8C%E6%99%AF"><span class="toc-text"> 游戏背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E7%9B%AE%E7%9A%84"><span class="toc-text"> 游戏目的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E8%BF%87%E7%A8%8B"><span class="toc-text"> 游戏过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%84%E7%A7%8D%E7%89%8C%E4%BB%8B%E7%BB%8D"><span class="toc-text"> 各种牌介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%89%8C"><span class="toc-text"> 基本牌</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%94%A6%E5%9B%8A%E7%89%8C"><span class="toc-text"> 锦囊牌</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A3%85%E5%A4%87%E7%89%8C"><span class="toc-text"> 装备牌</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E4%BA%8B%E4%BB%B6%E5%8F%8A%E6%A6%82%E5%BF%B5%E8%A7%A3%E9%87%8A"><span class="toc-text"> 特殊事件及概念解释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%A0%E7%A7%8D%E8%A1%8C%E4%B8%BA"><span class="toc-text"> 几种行为</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%8C%E5%8A%A8%E5%87%86%E5%88%99"><span class="toc-text"> 行动准则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B1%E6%80%A7"><span class="toc-text"> 共性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B9%E6%80%A7"><span class="toc-text"> 特性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="toc-text"> 输入格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="toc-text"> 输出格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B7%E4%BE%8B-1"><span class="toc-text"> 样例 #1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%85%A5-1"><span class="toc-text"> 样例输入 #1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%87%BA-1"><span class="toc-text"> 样例输出 #1</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%90%E7%A4%BA"><span class="toc-text"> 提示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B7%E4%BE%8B%E8%A7%A3%E9%87%8A"><span class="toc-text"> 样例解释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%90%E4%BB%BB%E5%8A%A1"><span class="toc-text"> 子任务</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text"> 📌 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9D%91%E7%82%B9"><span class="toc-text"> 💣 坑点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-text"> 📘 代码</span></a></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+  </div>
+
+
+        
+<div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          <a title="Github" target="_blank" rel="noopener" href="https://github.com/FallingSakura">
+            <i class="iconfont icon-github"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © 2023 Oranges</a>
+        
+    </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
+        
+    </div>
+  
+  
+    <div class="footer-views">
+      
+          本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        
+      
+          本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+        
+      
+          本站访客数<span id="busuanzi_value_site_uv"></span>人
+        
+      
+    </div>
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="搜索...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>首次搜索，正在载入索引文件，请稍后……<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>没有找到内容，请尝试更换检索词。<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>未找到search.xml文件，具体请参考：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>请求失败，尝试重新刷新页面或稍后重试。<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+
+        
+
+      </div>
+    </div>
+  
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+</html>
