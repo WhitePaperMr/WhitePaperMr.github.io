@@ -107,9 +107,9 @@
       
         <tags>
             
-            <tag> 二分 </tag>
-            
             <tag> 差分 </tag>
+            
+            <tag> 二分 </tag>
             
         </tags>
       
@@ -408,13 +408,13 @@
       
         <tags>
             
-            <tag> DP </tag>
-            
             <tag> 二分 </tag>
             
-            <tag> 图论 </tag>
+            <tag> DP </tag>
             
             <tag> 前缀和 </tag>
+            
+            <tag> 图论 </tag>
             
         </tags>
       
@@ -441,11 +441,11 @@
       
         <tags>
             
+            <tag> 二分 </tag>
+            
             <tag> DP </tag>
             
             <tag> 树状数组 </tag>
-            
-            <tag> 二分 </tag>
             
         </tags>
       
