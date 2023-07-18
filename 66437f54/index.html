@@ -163,7 +163,7 @@
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-          2023-07-18 20:18:40
+          2023-07-18 20:28:11
         </span>
         
               <span class="post-categories">
@@ -210,7 +210,7 @@
 <p>于是对于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>个方程，当<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">x=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>的时候函数值是最小的，从这些“最小值”中取出最小值并输出，然后将该函数的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">x+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>，继续比较，这样一直找到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span>个就可以了。</p>
 <p>该过程可用优先队列实现。</p>
 <h1 id="代码"><a class="markdownIt-Anchor" href="#代码"></a> 代码</h1>
-<h2 id="-code0-"><a class="markdownIt-Anchor" href="#-code0-"></a> <pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;bits/stdc++.h></span></span>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;bits/stdc++.h></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 <span class="token keyword">const</span> <span class="token keyword">int</span> N<span class="token operator">=</span><span class="token number">10010</span><span class="token punctuation">;</span>
 <span class="token keyword">int</span> A<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span>B<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span>C<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span>f<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -245,7 +245,8 @@ priority_queue<span class="token operator">&lt;</span>node<span class="token ope
         <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d "</span><span class="token punctuation">,</span>p<span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span></code></pre></h2>
+<span class="token punctuation">&#125;</span></code></pre>
+<hr />
 
       </div>
       
@@ -261,7 +262,7 @@ priority_queue<span class="token operator">&lt;</span>node<span class="token ope
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-              2023-07-18 20:18:40
+              2023-07-18 20:28:11
             </span>
             
                   <span class="post-categories">
@@ -318,42 +319,7 @@ priority_queue<span class="token operator">&lt;</span>node<span class="token ope
     <div class="title">目录</div>
     <div class="catalog-content">
       
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%80%9D%E8%B7%AF"><span class="toc-text"> 题目思路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-text"> 代码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#-code0-"><span class="toc-text"> #include&lt;bits&#x2F;stdc++.h&gt;
-using namespace std;
-const int N&#x3D;10010;
-int A[N],B[N],C[N],f[N];
-int n,m,jm;
-int F(int x,int i)
-{
-    return A[i]*x*x+B[i]*x+C[i];
-}
-struct node{
-    int val,id;
-    node(){}
-    node(int x,int y){val&#x3D;x;id&#x3D;y;}
-};
-bool operator&lt;(const node &amp;a,const node &amp;b)
-{
-    return a.val&gt;b.val;
-}
-priority_queue&lt;node&gt; q;
-int main()
-{
-    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
-    for(int i&#x3D;1;i&lt;&#x3D;n;i++)
-        scanf(&quot;%d%d%d&quot;,&amp;A[i],&amp;B[i],&amp;C[i]),f[i]&#x3D;1;&#x2F;&#x2F;f存指针,x取值
-    for(int i&#x3D;1;i&lt;&#x3D;n;i++)
-        q.push(node(F(f[i],i),i));
-    for(int i&#x3D;1;i&lt;&#x3D;m;i++)
-    {
-        node p&#x3D;q.top();
-        q.pop();
-        f[p.id]++;
-        q.push(node(F(f[p.id],p.id),p.id));
-        printf(&quot;%d &quot;,p.val);
-    }
-    return 0;
-}</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%80%9D%E8%B7%AF"><span class="toc-text"> 题目思路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-text"> 代码</span></a></li></ol>
       
     </div>
   </div>
