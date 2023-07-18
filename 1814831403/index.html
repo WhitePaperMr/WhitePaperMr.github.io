@@ -163,7 +163,7 @@
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-          2023-07-17 20:41:22
+          2023-07-18 19:42:31
         </span>
         
               <span class="post-categories">
@@ -415,6 +415,177 @@ priority_queue<span class="token operator">&lt;</span>Point<span class="token pu
 </ol>
 <p><code>rand()</code>函数每次随机都是产生相同的随机数，若要不同，可以用<code>srand(seed)</code>来随机化种子。</p>
 <p>也可以引用<code>srand(time(0))</code>来使用当前时间使随机数发生随机化，两次程序运行时间间隔超过一秒。</p>
+<h1 id="原码反码补码"><a class="markdownIt-Anchor" href="#原码反码补码"></a> 原码反码补码</h1>
+<h2 id="原码"><a class="markdownIt-Anchor" href="#原码"></a> 原码</h2>
+<p>计算机字长为8位，二进制数最高位表示符号位，0为正，1为负。</p>
+<p>原码即二进制表示。</p>
+<p>但是按照原码进行正负数的二进制加减显然得到的是错误的答案。</p>
+<p>于是就有了反码。</p>
+<h2 id="反码"><a class="markdownIt-Anchor" href="#反码"></a> 反码</h2>
+<p>正数不变，负数除了符号位每位取反，即反码。</p>
+<p>但是这样会出现两种<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>，即<code>10000000</code>和<code>00000000</code>。</p>
+<p>为了避免这种情况出现，于是出现了补码。</p>
+<h2 id="补码"><a class="markdownIt-Anchor" href="#补码"></a> 补码</h2>
+<p>整数不变，负数在反码的基础上+1.</p>
+<p>这样就可以把多出的一位进掉，变成“第九位”，而第九位不在计算机的字长里，这样就可以很好的规避两种<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>的问题。</p>
+<h1 id="auto类型"><a class="markdownIt-Anchor" href="#auto类型"></a> auto类型</h1>
+<p>当我们定义一个<strong>迭代器</strong>的时候，我们通常要这样写：</p>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp">map<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span>string<span class="token operator">></span> m<span class="token punctuation">;</span>
+map<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span>string<span class="token operator">></span><span class="token double-colon punctuation">::</span>iterator it<span class="token punctuation">;</span>
+it<span class="token operator">=</span>m<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>这样就很麻烦，所以我们可以简单地写为：</p>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp">map<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span>string<span class="token operator">></span> m<span class="token punctuation">;</span>
+<span class="token keyword">auto</span> it<span class="token operator">=</span>m<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><code>auto</code>会自动识别该元素的类型。</p>
+<p>需要<strong>注意</strong>的是：用auto定义的这一行必须是同种类型，下面举出反例：</p>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">auto</span> a<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>b<span class="token operator">=</span><span class="token number">1.0</span><span class="token punctuation">,</span>c<span class="token operator">=</span><span class="token string">"abc"</span><span class="token punctuation">;</span></code></pre>
+<p>这样是过不了编译的。</p>
+<h1 id="指针"><a class="markdownIt-Anchor" href="#指针"></a> 指针</h1>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39072627/article/details/107353728">迭代器和指针</a></p>
+</blockquote>
+<p><strong>数组名其实就是一个指针常量，它指向数组的首元素。</strong></p>
+<h2 id="定义"><a class="markdownIt-Anchor" href="#定义"></a> 定义：</h2>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token operator">*</span>p<span class="token punctuation">;</span></code></pre>
+<p><code>*</code>最好加在变量名旁边，因为不会产生误解比如：</p>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token operator">*</span>a<span class="token punctuation">,</span><span class="token operator">*</span>b<span class="token punctuation">,</span><span class="token operator">*</span>c<span class="token punctuation">;</span></code></pre>
+<p>这样定义的是三个指针，而这样：</p>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token operator">*</span>a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">;</span></code></pre>
+<p>这样仅<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span></span></span></span> 为指针。</p>
+<h2 id="使用"><a class="markdownIt-Anchor" href="#使用"></a> 使用</h2>
+<p>通过<code>*a</code>来访问该地址的值，指针储存的为地址，所以我们可以这样赋值：</p>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> num<span class="token punctuation">,</span><span class="token operator">*</span>a<span class="token punctuation">;</span>
+a<span class="token operator">=</span><span class="token operator">&amp;</span>num<span class="token punctuation">;</span>
+cout<span class="token operator">&lt;&lt;</span><span class="token operator">*</span>a<span class="token punctuation">;</span></code></pre>
+<p>其中<code>&amp;</code>为取地址，返回值为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mi>u</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">num</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mord mathdefault">u</span><span class="mord mathdefault">m</span></span></span></span>的地址。</p>
+<h2 id="取地址"><a class="markdownIt-Anchor" href="#取地址"></a> 取地址</h2>
+<p><code>&amp;</code>还有一个功能，那就是起别名。</p>
+<p>比如下面这串代码：</p>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;bits/stdc++.h></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  
+<span class="token punctuation">&#123;</span>  
+    <span class="token comment">// int *a,*b,*c;</span>
+    <span class="token comment">// cout&lt;&lt;a&lt;&lt;b&lt;&lt;c;</span>
+    <span class="token keyword">int</span> val <span class="token operator">=</span> <span class="token number">7</span><span class="token punctuation">,</span> val2 <span class="token operator">=</span> <span class="token number">999</span><span class="token punctuation">;</span>  
+    <span class="token keyword">int</span> <span class="token operator">&amp;</span>refval <span class="token operator">=</span> val<span class="token punctuation">,</span> <span class="token operator">&amp;</span>refval2 <span class="token operator">=</span> val2<span class="token punctuation">;</span> <span class="token comment">//引用必须要初始化，使其绑定到一个变量上  </span>
+    <span class="token comment">//修改引用的值将改变其所绑定的变量的值  </span>
+    refval <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">12</span><span class="token punctuation">;</span>  
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d %d\n"</span><span class="token punctuation">,</span> val<span class="token punctuation">,</span> refval<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//-12，refval的值和val一样  </span>
+    <span class="token comment">//将引用b赋值给引用a将改变引用a所绑定的变量的值，  </span>
+    <span class="token comment">//引用一但初始化(绑定)，将始终绑定到同一个特定对象上，无法绑定到另一个对象上  </span>
+    refval <span class="token operator">=</span> refval2<span class="token punctuation">;</span>  
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d %d\n"</span><span class="token punctuation">,</span> val<span class="token punctuation">,</span> refval<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//999  </span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>  
+<span class="token punctuation">&#125;</span>  </code></pre>
+<p>输出为：</p>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token operator">-</span><span class="token number">12</span> <span class="token operator">-</span><span class="token number">12</span>
+<span class="token number">999</span> <span class="token number">999</span></code></pre>
+<p>相当于<code>windows</code>系统下的<code>mklink</code>命令，相当于可以直接修改文件原内容的快捷方式。</p>
+<p>在上述例子中，<code>refval</code>是<code>val</code>的别名，<code>refval2</code> 是<code>val2</code> 的别名。</p>
+<p>修改别名就相当于修改元素本身。</p>
+<h1 id="string-初始化"><a class="markdownIt-Anchor" href="#string-初始化"></a> String 初始化</h1>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/VariatioZbw/article/details/116592225">引用</a></p>
+</blockquote>
+<h2 id="1"><a class="markdownIt-Anchor" href="#1"></a> 1.</h2>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp">string str1 <span class="token operator">=</span> <span class="token string">"test01"</span> <span class="token punctuation">;</span></code></pre>
+<h2 id="2"><a class="markdownIt-Anchor" href="#2"></a> 2.</h2>
+<p><code>string( size_type length, char ch );</code></p>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp">string <span class="token function">str2</span><span class="token punctuation">(</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token char">'c'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//  str2 'ccccc'</span></code></pre>
+<h2 id="3"><a class="markdownIt-Anchor" href="#3"></a> 3.</h2>
+<p><code>string( const char *str );</code></p>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp">string <span class="token function">str3</span><span class="token punctuation">(</span> <span class="token string">"Now is the time..."</span> <span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h2 id="4"><a class="markdownIt-Anchor" href="#4"></a> 4.</h2>
+<p><code>string( string &amp;str, size_type index, size_type length );</code></p>
+<ul>
+<li>以<code>index</code>为索引开始的子串，长度为<code>length</code>, 或者以从<code>start</code>到<code>end</code>的元素为初值.。</li>
+</ul>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp">string <span class="token function">str4</span><span class="token punctuation">(</span> str3<span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">4</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//str4 "time"</span></code></pre>
+<h2 id="eg"><a class="markdownIt-Anchor" href="#eg"></a> eg.</h2>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	string str1 <span class="token operator">=</span> <span class="token string">"test01"</span> <span class="token punctuation">;</span>
+	string <span class="token function">str2</span><span class="token punctuation">(</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token char">'c'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//  str2 'ccccc'</span>
+	string <span class="token function">str3</span><span class="token punctuation">(</span> <span class="token string">"Now is the time..."</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+	string <span class="token function">str4</span><span class="token punctuation">(</span> str3<span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">4</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+	cout <span class="token operator">&lt;&lt;</span> str1 <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+	cout <span class="token operator">&lt;&lt;</span> str2 <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+	cout <span class="token operator">&lt;&lt;</span> str3 <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+	cout <span class="token operator">&lt;&lt;</span> str4 <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p><strong>输出：</strong></p>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp">test01
+ccccc
+Now is the time<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+time</code></pre>
+<h1 id="迭代器的辅助函数"><a class="markdownIt-Anchor" href="#迭代器的辅助函数"></a> 迭代器的辅助函数</h1>
+<blockquote>
+<p><code>#include&lt;algorithm&gt;</code></p>
+</blockquote>
+<p><strong>注：</strong> <code>.begin()</code>指向的是容器首个元素的迭代器，<code>.end()</code>指向的是容器末尾的下一个元素的迭代器，因此是左开右闭得一个区间。</p>
+<h1 id="1-2"><a class="markdownIt-Anchor" href="#1-2"></a> 1.</h1>
+<p><code>advance(iterator,int)</code></p>
+<p>例如<code>advance(it,6)</code>就是使<code>it</code>这个迭代器向后移动6个元素（<code>++</code>六次）。</p>
+<p><code>advance(it,-6)</code>就是使<code>it</code>这个迭代器向前移动6个元素。</p>
+<h2 id="2-2"><a class="markdownIt-Anchor" href="#2-2"></a> 2.</h2>
+<p><code>distance(it1,it2)</code>计算两个迭代器之间的距离（从<code>it1</code>到<code>it2</code>需要<code>++</code>多少次）。</p>
+<p>若<code>it2</code>在<code>it1</code>前面，那么会进入死循环。</p>
+<h1 id="3-2"><a class="markdownIt-Anchor" href="#3-2"></a> 3.</h1>
+<p><code>iter_swap(it1,it2)</code>交换两个迭代器的值。</p>
+<h2 id="反向迭代器"><a class="markdownIt-Anchor" href="#反向迭代器"></a> 反向迭代器</h2>
+<blockquote>
+<p>倒着遍历</p>
+</blockquote>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">for</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token double-colon punctuation">::</span>reverse_iterator it<span class="token operator">=</span>b<span class="token punctuation">.</span><span class="token function">rbegin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>it<span class="token operator">!=</span>b<span class="token punctuation">.</span><span class="token function">rend</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>it<span class="token operator">++</span><span class="token punctuation">)</span></code></pre>
+<p>这里<code>++</code>表示向前一个元素，<code>--</code>表示向后一个元素。</p>
+<p>也可以这样写：</p>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">auto</span> it<span class="token operator">=</span>b<span class="token punctuation">.</span><span class="token function">rbegin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>it<span class="token operator">!=</span>b<span class="token punctuation">.</span><span class="token function">rend</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>it<span class="token operator">++</span><span class="token punctuation">)</span></code></pre>
+<h1 id="范围for"><a class="markdownIt-Anchor" href="#范围for"></a> 范围for</h1>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">auto</span> <span class="token operator">&amp;</span>i<span class="token operator">:</span>a<span class="token punctuation">)</span></code></pre>
+<p>第一个参数表示遍历声明，即声明的变量，呗遍历到的元素会储存到这个变量中，相当于拷贝一份，若加上<code>&amp;</code>，则可以直接引用并修改元素。</p>
+<p>第二个参数为遍历对象，常见为各种容器(<code>map,vector,set,list等</code>)，数组，填入它们的名称即可；</p>
+<p>若防止元素被修改，可以这样写：</p>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">auto</span> <span class="token operator">&amp;</span>i<span class="token operator">:</span>a<span class="token punctuation">)</span></code></pre>
+<p>这里加入<code>&amp;</code>是为了防止拷贝导致运行变慢。</p>
+<hr />
+<p>对于关系型容器比如<code>map</code>，有几点要注意：</p>
+<p>对于<code>map</code>的迭代器遍历：<code>for(auto i=m.begin())</code>识别<code>i</code>为迭代器，则访问就要用迭代器的方式：</p>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp">i<span class="token operator">-></span>first<span class="token punctuation">;</span>
+i<span class="token operator">-></span>second<span class="token punctuation">;</span></code></pre>
+<p>而对于范围<code>for</code>，<code>for(auto i:m)</code>识别<code>i</code>为容器中的<code>value_type</code>，这里相当于<code>pair</code>，访问就要用<code>pair</code>的方式：</p>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp">i<span class="token punctuation">.</span>first<span class="token punctuation">;</span>
+i<span class="token punctuation">.</span>second<span class="token punctuation">;</span></code></pre>
+<hr />
+<p>若识别到的元素不可被修改，为只读模式，那么就会被视为<code>const auto &amp;</code>，例如<code>set</code></p>
+<hr />
+<p>冒号后面的表达式只会被执行一次，得到访问对象后确定迭代的范围，在这个范围内进行遍历。</p>
+<p>例如：</p>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;vector></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstdlib></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> v <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token operator">&amp;</span><span class="token function">getRange</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"get vector range..."</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> v<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">auto</span> val <span class="token operator">:</span> <span class="token function">getRange</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        cout <span class="token operator">&lt;&lt;</span> val <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token function">system</span><span class="token punctuation">(</span><span class="token string">"pause"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>此函数只会被执行一次。</p>
+<p>此外，范围<code>for</code>的变量需要在其内部声明，不可引用全局变量</p>
 
       </div>
       
@@ -430,7 +601,7 @@ priority_queue<span class="token operator">&lt;</span>Point<span class="token pu
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-              2023-07-17 20:41:22
+              2023-07-18 19:42:31
             </span>
             
                   <span class="post-categories">
@@ -481,7 +652,7 @@ priority_queue<span class="token operator">&lt;</span>Point<span class="token pu
     <div class="title">目录</div>
     <div class="catalog-content">
       
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E7%AA%97%E5%8F%A3%E8%BF%90%E8%A1%8Ccpp%E6%96%87%E4%BB%B6"><span class="toc-text"> 命令窗口运行cpp文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-text"> 关键字</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text"> 数据类型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%8F%E5%AE%9A%E4%B9%89"><span class="toc-text"> 宏定义</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#typedef"><span class="toc-text"> typedef</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ifdef"><span class="toc-text"> ifdef</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95"><span class="toc-text"> 语法：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-text"> 时间复杂度</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="toc-text"> 结构体构造函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text"> 结构体重载运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E9%83%A8"><span class="toc-text"> 内部</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%96%E9%83%A8"><span class="toc-text"> 外部</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%BB%E5%85%A5eof"><span class="toc-text"> 读入EOF</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E4%BC%A0%E5%8F%82"><span class="toc-text"> 数组传参</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E8%AF%BB%E5%85%A5%E8%BE%93%E5%87%BA"><span class="toc-text"> 文件读入&#x2F;输出</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sscanfsprintf"><span class="toc-text"> sscanf&amp;sprintf</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%92%8C%E6%B5%81"><span class="toc-text"> 文件和流</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E5%87%BD%E6%95%B0"><span class="toc-text"> 对象函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-text"> 例子：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E5%8C%96"><span class="toc-text"> 随机化</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E7%AA%97%E5%8F%A3%E8%BF%90%E8%A1%8Ccpp%E6%96%87%E4%BB%B6"><span class="toc-text"> 命令窗口运行cpp文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-text"> 关键字</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text"> 数据类型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%8F%E5%AE%9A%E4%B9%89"><span class="toc-text"> 宏定义</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#typedef"><span class="toc-text"> typedef</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ifdef"><span class="toc-text"> ifdef</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95"><span class="toc-text"> 语法：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-text"> 时间复杂度</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="toc-text"> 结构体构造函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text"> 结构体重载运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E9%83%A8"><span class="toc-text"> 内部</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%96%E9%83%A8"><span class="toc-text"> 外部</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%BB%E5%85%A5eof"><span class="toc-text"> 读入EOF</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E4%BC%A0%E5%8F%82"><span class="toc-text"> 数组传参</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E8%AF%BB%E5%85%A5%E8%BE%93%E5%87%BA"><span class="toc-text"> 文件读入&#x2F;输出</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sscanfsprintf"><span class="toc-text"> sscanf&amp;sprintf</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%92%8C%E6%B5%81"><span class="toc-text"> 文件和流</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E5%87%BD%E6%95%B0"><span class="toc-text"> 对象函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-text"> 例子：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E5%8C%96"><span class="toc-text"> 随机化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8E%9F%E7%A0%81%E5%8F%8D%E7%A0%81%E8%A1%A5%E7%A0%81"><span class="toc-text"> 原码反码补码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E7%A0%81"><span class="toc-text"> 原码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E7%A0%81"><span class="toc-text"> 反码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E7%A0%81"><span class="toc-text"> 补码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#auto%E7%B1%BB%E5%9E%8B"><span class="toc-text"> auto类型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8C%87%E9%92%88"><span class="toc-text"> 指针</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-text"> 定义：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-text"> 使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%96%E5%9C%B0%E5%9D%80"><span class="toc-text"> 取地址</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#string-%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text"> String 初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1"><span class="toc-text"> 1.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2"><span class="toc-text"> 2.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3"><span class="toc-text"> 3.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4"><span class="toc-text"> 4.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#eg"><span class="toc-text"> eg.</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8%E7%9A%84%E8%BE%85%E5%8A%A9%E5%87%BD%E6%95%B0"><span class="toc-text"> 迭代器的辅助函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-2"><span class="toc-text"> 1.</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2"><span class="toc-text"> 2.</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-2"><span class="toc-text"> 3.</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%90%91%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="toc-text"> 反向迭代器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%8C%83%E5%9B%B4for"><span class="toc-text"> 范围for</span></a></li></ol>
       
     </div>
   </div>
