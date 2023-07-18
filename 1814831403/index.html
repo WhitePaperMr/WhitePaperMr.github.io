@@ -163,7 +163,7 @@
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-          2023-07-18 20:18:22
+          2023-07-18 20:33:25
         </span>
         
               <span class="post-categories">
@@ -545,7 +545,7 @@ time</code></pre>
 <pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">auto</span> it<span class="token operator">=</span>b<span class="token punctuation">.</span><span class="token function">rbegin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>it<span class="token operator">!=</span>b<span class="token punctuation">.</span><span class="token function">rend</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>it<span class="token operator">++</span><span class="token punctuation">)</span></code></pre>
 <h1 id="范围for"><a class="markdownIt-Anchor" href="#范围for"></a> 范围for</h1>
 <pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">auto</span> <span class="token operator">&amp;</span>i<span class="token operator">:</span>a<span class="token punctuation">)</span></code></pre>
-<p>第一个参数表示遍历声明，即声明的变量，呗遍历到的元素会储存到这个变量中，相当于拷贝一份，若加上<code>&amp;</code>，则可以直接引用并修改元素。</p>
+<p>第一个参数表示遍历声明，即声明的变量，被遍历到的元素会储存到这个变量中，相当于拷贝一份，若加上<code>&amp;</code>，则可以直接引用并修改元素。</p>
 <p>第二个参数为遍历对象，常见为各种容器(<code>map,vector,set,list等</code>)，数组，填入它们的名称即可；</p>
 <p>若防止元素被修改，可以这样写：</p>
 <pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">auto</span> <span class="token operator">&amp;</span>i<span class="token operator">:</span>a<span class="token punctuation">)</span></code></pre>
@@ -601,7 +601,7 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-              2023-07-18 20:18:22
+              2023-07-18 20:33:25
             </span>
             
                   <span class="post-categories">
