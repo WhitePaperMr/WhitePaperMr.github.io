@@ -161,9 +161,9 @@
       
         <tags>
             
-            <tag> 差分 </tag>
-            
             <tag> 二分 </tag>
+            
+            <tag> 差分 </tag>
             
         </tags>
       
@@ -246,11 +246,11 @@
             
             <tag> ST </tag>
             
-            <tag> 堆 </tag>
+            <tag> 前缀和 </tag>
             
             <tag> 贪心 </tag>
             
-            <tag> 前缀和 </tag>
+            <tag> 堆 </tag>
             
         </tags>
       
@@ -375,9 +375,9 @@
       
         <tags>
             
-            <tag> 堆 </tag>
-            
             <tag> 贪心 </tag>
+            
+            <tag> 堆 </tag>
             
         </tags>
       
@@ -404,9 +404,9 @@
       
         <tags>
             
-            <tag> 堆 </tag>
-            
             <tag> 贪心 </tag>
+            
+            <tag> 堆 </tag>
             
         </tags>
       
@@ -433,9 +433,9 @@
       
         <tags>
             
-            <tag> 堆 </tag>
-            
             <tag> 贪心 </tag>
+            
+            <tag> 堆 </tag>
             
         </tags>
       
@@ -462,9 +462,9 @@
       
         <tags>
             
-            <tag> 二分 </tag>
-            
             <tag> DP </tag>
+            
+            <tag> 二分 </tag>
             
             <tag> 前缀和 </tag>
             
@@ -495,11 +495,11 @@
       
         <tags>
             
-            <tag> 二分 </tag>
-            
             <tag> DP </tag>
             
             <tag> 树状数组 </tag>
+            
+            <tag> 二分 </tag>
             
         </tags>
       
