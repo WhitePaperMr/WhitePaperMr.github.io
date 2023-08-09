@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="zh-CN" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <meta name="keywords" content="OI">
+  
+  <meta name="author" content="FallingSakura" />
+  <meta name="description" content="An Academic Blog." />
+  
+  
+  <title>
+    
+      NOIP-搜索 
+      
+      
+      |
+    
+     FallingCode
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/favicon.png">
+    <link rel="icon" href="/images/favicon.png">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1886449_67xjft27j1l.css" />
+  <!-- 代码块风格 -->
+  
+
+  <!-- jquery3.3.1 -->
+  
+    <script defer type="text/javascript" src="/plugins/jquery.min.js"></script>
+  
+
+  <!-- fancybox -->
+  
+    <link href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" rel="stylesheet">
+    <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+  
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img no-lazy src="https://cdn.staticaly.com/gh/FallingSakura/Source@main/img/202306230954167.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">FallingSakura</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">Categories</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">Tags</a>
+        </li>
+      
+        <li class="nav-item" data-path="/about/">
+          <a href="/about/">About</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">NOIP-搜索</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+          2023-08-09 20:04:18
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="分类"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/OI/" title="OI">
+                    <b>#</b> OI
+                  </a>
+                </span>
+                
+                <span class="span--category">
+                  <a href="/categories/Note/" title="Note">
+                    <b>#</b> Note
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h1 id="挖坑"><a class="markdownIt-Anchor" href="#挖坑"></a> 挖坑</h1>
+<h2 id="dfs"><a class="markdownIt-Anchor" href="#dfs"></a> DFS</h2>
+<h2 id="bfs"><a class="markdownIt-Anchor" href="#bfs"></a> BFS</h2>
+<h2 id="剪枝"><a class="markdownIt-Anchor" href="#剪枝"></a> 剪枝</h2>
+<h2 id="迭代加深"><a class="markdownIt-Anchor" href="#迭代加深"></a> 迭代加深</h2>
+<h2 id="洪水填充"><a class="markdownIt-Anchor" href="#洪水填充"></a> 洪水填充</h2>
+<h2 id="a"><a class="markdownIt-Anchor" href="#a"></a> A*</h2>
+<h1 id="爬山"><a class="markdownIt-Anchor" href="#爬山"></a> 爬山</h1>
+<p>在一个多峰函数上行走，每次可以走一小步，当且仅当向左和向右走都不是更优的时候，我就停下，否则就向更优的方向走。</p>
+<p>但是这样有一个问题，我们找到的“最优解”很可能是“局部最优解”。</p>
+<p>因为这本身就是一个贪心的思路。</p>
+<p>所以需要加一些东西使这个贪心找到正确答案的概率更高一些。</p>
+<h1 id="模拟退火"><a class="markdownIt-Anchor" href="#模拟退火"></a> 模拟退火</h1>
+<p>基于爬山算法,加上了<strong>温度T</strong>参数作为控制步子大小的参数。</p>
+<p>温度越高，就容易冲动从而一步走得很大，这样就会波动到全局最优解，但是很不稳定。</p>
+<p>温度渐渐降下来时，冷静下来后每次的步子就走的比较小了，这样最后就会在全局最优解附近不断逼近直至找到最优解。</p>
+<p>虽然说也有可能在局部最优解就冷静下来了，不过没关系，你多重复几次这样的过程，得到正解的概率就会大大增加。</p>
+<p>先设置一个初始温度，每次操作后进行一个降温操作，即<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span></span></span></span>乘上某个系数，具体依题目而定。</p>
+<p>还要设一个满足条件的初始答案，在此基础上进行调整（这个答案不必很准确，尽量接近答案以减少迭代次数）。</p>
+<p>每次走一步后，如果是更优解，那么就走过去；如果不是更优解，那就以一定的概率走过去，这个是平衡概率<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>e</mi><mi>x</mi><mi>p</mi><mo stretchy="false">(</mo><mi mathvariant="normal">Δ</mi><mi>E</mi><mi mathvariant="normal">/</mi><mi>T</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">exp(\Delta{E}/T)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">e</span><span class="mord mathdefault">x</span><span class="mord mathdefault">p</span><span class="mopen">(</span><span class="mord">Δ</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">E</span></span><span class="mord">/</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mclose">)</span></span></span></span>，其中<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>e</mi><mi>x</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">exp</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">e</span><span class="mord mathdefault">x</span><span class="mord mathdefault">p</span></span></span></span>函数是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>e</mi></mrow><annotation encoding="application/x-tex">e</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">e</span></span></span></span>的多少次方。</p>
+<p>如果怕参数没调校好导致超时，或者是想尽量多重复几次步骤，可以尝试加入<strong>卡时</strong>技巧。</p>
+<p>如：</p>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">double</span><span class="token punctuation">)</span><span class="token function">clock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">/</span>CLOCKS_PER_SEC<span class="token operator">&lt;</span>T<span class="token punctuation">)</span> <span class="token keyword">break</span><span class="token punctuation">;</span></code></pre>
+<p>其中 T 为时限，记得预留足够的输出时间。</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://falling-sakura1-1316699389.cos.ap-nanjing.myqcloud.com/image/202308011959927.webp" alt="image.png" /></p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://falling-sakura1-1316699389.cos.ap-nanjing.myqcloud.com/image/202308012008597.webp" alt="image.png" /></p>
+<p>会有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn><mo>∼</mo><mn>5</mn><mi>m</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">0\sim{5} ms</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord"><span class="mord">5</span></span><span class="mord mathdefault">m</span><span class="mord mathdefault">s</span></span></span></span>的误差。</p>
+<h1 id="莫队"><a class="markdownIt-Anchor" href="#莫队"></a> 莫队</h1>
+<blockquote>
+<p>一种区间暴力结合分块的玄学优化的离线算法。<br />
+<a target="_blank" rel="noopener" href="https://www.zhihu.com/people/mythly">莫涛大神的知乎</a></p>
+</blockquote>
+<p>如果题目要求强制在线的话，线段树和树状数组才是更优选择。</p>
+<h2 id="例题"><a class="markdownIt-Anchor" href="#例题"></a> 例题</h2>
+<p>给定一个序列，每次询问为一个区间，每次输出该区间内共有多少不同的数。</p>
+<p>对于这道题，暴力的做法肯定是把每个区间都扫一遍，扫的时候统计区间内不同书的个数。</p>
+<p>而这个的一个优化就是移动区间的左右端点的指针。</p>
+<p>初始时<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mo>=</mo><mn>1</mn><mo separator="true">,</mo><mi>r</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">l=1,r=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>，记录一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi><mi>n</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">cnt</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault">n</span><span class="mord mathdefault">t</span></span></span></span>数组为该种数出现的次数，类似于桶。</p>
+<p>而每遇到一个新数，就把它出现的次数加一，如果它出现的次数是零，那么说明这个数在之前都没有出现过，所以不同数的个数也要加一。假如这个数字之前出现过了，那么就只加对应数的个数，而不需要加不同数的个数。</p>
+<p>每减去一个数，把它的出现次数减一，这时候判断一下是否为零，如果是，那就说明这个数已经消失了，所以不同数的个数也要减一。</p>
+<p>具体的实现过程，注意<code>++</code>和<code>--</code>的顺序：</p>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">int</span> pos<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>cnt<span class="token punctuation">[</span>a<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">++</span>now<span class="token punctuation">;</span>
+    <span class="token operator">++</span>cnt<span class="token punctuation">[</span>a<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">void</span> <span class="token function">del</span><span class="token punctuation">(</span><span class="token keyword">int</span> pos<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token operator">--</span>cnt<span class="token punctuation">[</span>a<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>cnt<span class="token punctuation">[</span>a<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">--</span>now<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">void</span> <span class="token function">work</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>q<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+
+        <span class="token keyword">int</span> ql<span class="token punctuation">,</span>qr<span class="token punctuation">;</span>
+        <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>qr<span class="token punctuation">,</span><span class="token operator">&amp;</span>ql<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>l<span class="token operator">&lt;</span>ql<span class="token punctuation">)</span> <span class="token function">del</span><span class="token punctuation">(</span>l<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>l<span class="token operator">></span>ql<span class="token punctuation">)</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token operator">--</span>l<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>r<span class="token operator">&lt;</span>qr<span class="token punctuation">)</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token operator">++</span>r<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>r<span class="token operator">></span>qr<span class="token punctuation">)</span> <span class="token function">del</span><span class="token punctuation">(</span>r<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span>now<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>但这还不够，因为在一些极端情况下，比如中间有一段很长的区间，但是查询都是在两端的小区间，而且还是换着来的，这样就会导致区间一会跑向左边，一会跑向右边，就会被卡。</p>
+<p>所以我们就要上一些<em>玄学优化</em>了。</p>
+<h2 id="分块"><a class="markdownIt-Anchor" href="#分块"></a> 分块</h2>
+<p>将长度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>的序列分为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msqrt><mi>n</mi></msqrt></mrow><annotation encoding="application/x-tex">\sqrt{n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.23972em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8002800000000001em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord mathdefault">n</span></span></span><span style="top:-2.76028em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,
+-10,-9.5,-14c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54c44.2,-33.3,65.8,
+-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10s173,378,173,378c0.7,0,
+35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429c69,-144,104.5,-217.7,106.5,
+-221c5.3,-9.3,12,-14,20,-14H400000v40H845.2724s-225.272,467,-225.272,467
+s-235,486,-235,486c-2.7,4.7,-9,7,-19,7c-6,0,-10,-1,-12,-3s-194,-422,-194,-422
+s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.23972em;"><span></span></span></span></span></span></span></span></span>个块，编号从<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msqrt><mi>n</mi></msqrt></mrow><annotation encoding="application/x-tex">\sqrt{n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.23972em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8002800000000001em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord mathdefault">n</span></span></span><span style="top:-2.76028em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,
+-10,-9.5,-14c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54c44.2,-33.3,65.8,
+-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10s173,378,173,378c0.7,0,
+35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429c69,-144,104.5,-217.7,106.5,
+-221c5.3,-9.3,12,-14,20,-14H400000v40H845.2724s-225.272,467,-225.272,467
+s-235,486,-235,486c-2.7,4.7,-9,7,-19,7c-6,0,-10,-1,-12,-3s-194,-422,-194,-422
+s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.23972em;"><span></span></span></span></span></span></span></span></span>，把查询区间按照左端点所在块的编号排序，如果左端点所在的块相同，那就按照右端点排序。</p>
+<p>排序函数：</p>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">bool</span> <span class="token function">cmp</span><span class="token punctuation">(</span>query a<span class="token punctuation">,</span> query b<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> belong<span class="token punctuation">[</span>a<span class="token punctuation">.</span>l<span class="token punctuation">]</span><span class="token operator">==</span>belong<span class="token punctuation">[</span>b<span class="token punctuation">.</span>l<span class="token punctuation">]</span><span class="token operator">?</span>a<span class="token punctuation">.</span>r<span class="token operator">&lt;</span>b<span class="token punctuation">.</span>r<span class="token operator">:</span>belong<span class="token punctuation">[</span>a<span class="token punctuation">.</span>l<span class="token punctuation">]</span><span class="token operator">&lt;</span>belong<span class="token punctuation">[</span>b<span class="token punctuation">.</span>l<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>这么一个优化就把时间复杂度从<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>n</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">n^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>变为了<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><msqrt><mi>n</mi></msqrt></mrow><annotation encoding="application/x-tex">n\sqrt{n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.23972em;"></span><span class="mord mathdefault">n</span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8002800000000001em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord mathdefault">n</span></span></span><span style="top:-2.76028em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,
+-10,-9.5,-14c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54c44.2,-33.3,65.8,
+-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10s173,378,173,378c0.7,0,
+35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429c69,-144,104.5,-217.7,106.5,
+-221c5.3,-9.3,12,-14,20,-14H400000v40H845.2724s-225.272,467,-225.272,467
+s-235,486,-235,486c-2.7,4.7,-9,7,-19,7c-6,0,-10,-1,-12,-3s-194,-422,-194,-422
+s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.23972em;"><span></span></span></span></span></span></span></span></span>，好极了，那么继续。</p>
+<h2 id="奇偶性排序"><a class="markdownIt-Anchor" href="#奇偶性排序"></a> 奇偶性排序</h2>
+<p>对于左端点在同一个编号为奇数的块内，右端点按照升序排列。</p>
+<p>对于左端点在统一编号为偶数的块内，右端点按照降序排列。</p>
+<p>它的主要原理便是右指针跳完奇数块往回跳时在同一个方向能顺路把偶数块跳完，然后跳完这个偶数块又能顺带把下一个奇数块跳完。</p>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">cmp</span><span class="token punctuation">(</span>query a<span class="token punctuation">,</span> query b<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token keyword">return</span> <span class="token punctuation">(</span>belong<span class="token punctuation">[</span>a<span class="token punctuation">.</span>l<span class="token punctuation">]</span><span class="token operator">^</span>belong<span class="token punctuation">[</span>b<span class="token punctuation">.</span>l<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">?</span>belong<span class="token punctuation">[</span>a<span class="token punctuation">.</span>l<span class="token punctuation">]</span><span class="token operator">&lt;</span>belong<span class="token punctuation">[</span>b<span class="token punctuation">.</span>l<span class="token punctuation">]</span><span class="token operator">:</span><span class="token punctuation">(</span><span class="token punctuation">(</span>belong<span class="token punctuation">[</span>a<span class="token punctuation">.</span>l<span class="token punctuation">]</span><span class="token operator">&amp;</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">?</span>a<span class="token punctuation">.</span>r<span class="token operator">&lt;</span>b<span class="token punctuation">.</span>r<span class="token operator">:</span>a<span class="token punctuation">.</span>r<span class="token operator">></span>b<span class="token punctuation">.</span>r<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p>先用异或判断两个数是否相等，如果不同，那么就按照编号升序排序；如果相同，那么再比较它们的块的编号的奇偶性，如果是奇数，那就按照右端点升序排序，否则按照右端点降序排序。</p>
+<h2 id="压常"><a class="markdownIt-Anchor" href="#压常"></a> 压常</h2>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">while</span><span class="token punctuation">(</span>l<span class="token operator">&lt;</span>ql<span class="token punctuation">)</span> now<span class="token operator">-=</span><span class="token operator">!</span><span class="token operator">--</span>cnt<span class="token punctuation">[</span>a<span class="token punctuation">[</span>l<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span><span class="token punctuation">(</span>l<span class="token operator">></span>ql<span class="token punctuation">)</span> now<span class="token operator">+=</span><span class="token operator">!</span>cnt<span class="token punctuation">[</span>a<span class="token punctuation">[</span><span class="token operator">--</span>l<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span><span class="token punctuation">(</span>r<span class="token operator">&lt;</span>qr<span class="token punctuation">)</span> now<span class="token operator">+=</span><span class="token operator">!</span>cnt<span class="token punctuation">[</span>a<span class="token punctuation">[</span><span class="token operator">++</span>r<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span><span class="token punctuation">(</span>r<span class="token operator">></span>qr<span class="token punctuation">)</span> now<span class="token operator">-=</span><span class="token operator">!</span><span class="token operator">--</span>cnt<span class="token punctuation">[</span>a<span class="token punctuation">[</span>r<span class="token operator">--</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre>
+<p>注意此处<code>+=</code>优先级比<code>cnt++</code>更高</p>
+<h2 id="快读快写"><a class="markdownIt-Anchor" href="#快读快写"></a> 快读/快写</h2>
+<p>略。</p>
+<blockquote>
+<p>参考文章：</p>
+</blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/WAMonster/p/10118934.html">莫队算法——从入门到黑题 - WAMonster - 博客园 (cnblogs.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/115243708">算法学习笔记(24): 莫队 - 知乎 (zhihu.com)</a></li>
+</ul>
+<h2 id="树上莫队"><a class="markdownIt-Anchor" href="#树上莫队"></a> 树上莫队</h2>
+<h2 id="回滚莫队"><a class="markdownIt-Anchor" href="#回滚莫队"></a> 回滚莫队</h2>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/3023808606/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+              2023-08-09 20:04:18
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="分类"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/OI/" title="OI">
+                        <b>#</b> OI
+                      </a>
+                    </span>
+                    
+                    <span class="span--category">
+                      <a href="/categories/Note/" title="Note">
+                        <b>#</b> Note
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2500186707/" target="_self">
+                <span>下一页</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8C%96%E5%9D%91"><span class="toc-text"> 挖坑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#dfs"><span class="toc-text"> DFS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bfs"><span class="toc-text"> BFS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%AA%E6%9E%9D"><span class="toc-text"> 剪枝</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%AD%E4%BB%A3%E5%8A%A0%E6%B7%B1"><span class="toc-text"> 迭代加深</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B4%AA%E6%B0%B4%E5%A1%AB%E5%85%85"><span class="toc-text"> 洪水填充</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#a"><span class="toc-text"> A*</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%88%AC%E5%B1%B1"><span class="toc-text"> 爬山</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB"><span class="toc-text"> 模拟退火</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%8E%AB%E9%98%9F"><span class="toc-text"> 莫队</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-text"> 例题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E5%9D%97"><span class="toc-text"> 分块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A5%87%E5%81%B6%E6%80%A7%E6%8E%92%E5%BA%8F"><span class="toc-text"> 奇偶性排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%8B%E5%B8%B8"><span class="toc-text"> 压常</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E8%AF%BB%E5%BF%AB%E5%86%99"><span class="toc-text"> 快读&#x2F;快写</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E4%B8%8A%E8%8E%AB%E9%98%9F"><span class="toc-text"> 树上莫队</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9E%E6%BB%9A%E8%8E%AB%E9%98%9F"><span class="toc-text"> 回滚莫队</span></a></li></ol></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+  </div>
+
+
+        
+<div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          <a title="Github" target="_blank" rel="noopener" href="https://github.com/FallingSakura">
+            <i class="iconfont icon-github"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="Email" href="mailto:dbw1732351264@163.com">
+            <i class="iconfont icon-envelope"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://fallingsakura.love">Copyright © 2023 FallingSakura</a>
+        
+    </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
+        
+    </div>
+  
+  
+    <div class="footer-views">
+      
+          本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        
+      
+      
+          访客数<span id="busuanzi_value_site_uv"></span>位
+        
+      
+    </div>
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="搜索...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>首次搜索，正在载入索引文件，请稍后……<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>没有找到内容，请尝试更换检索词。<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>未找到search.xml文件，具体请参考：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>请求失败，尝试重新刷新页面或稍后重试。<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+
+        
+
+      </div>
+    </div>
+  
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+</html>

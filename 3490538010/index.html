@@ -163,7 +163,7 @@
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-          2023-07-21 20:07:56
+          2023-08-09 20:04:18
         </span>
         
               <span class="post-categories">
@@ -196,17 +196,78 @@
           
       </div>
       <div class="markdown-body">
-        <blockquote>
+        <h1 id="不知道放哪里的知识点"><a class="markdownIt-Anchor" href="#不知道放哪里的知识点"></a> 不知道放哪里的知识点</h1>
+<blockquote>
 <p><font color=#3198C7 size=5>看到这些就会想起那一个个<b>心平气和</b>的夜晚。</font></p>
 </blockquote>
-<h1 id="易错"><a class="markdownIt-Anchor" href="#易错"></a> 易错</h1>
 <ol>
 <li><code>getchar()</code>若在读入时使用，在之前和之后一定要把多余的空格换行符用<strong>while</strong>读取完，因为你不知道<strong>可爱的出题人</strong>会在数据里给你塞一堆你看不见的奇奇怪怪的符号！</li>
+<li>类似于八皇后问题，如果网格图中只走对角线的话，那么坐标的和或者差是不变的，扩展出去，其实就是奇偶性不变。</li>
+<li><code>\</code>在<code>cpp</code>中属于转义字符，若要使用需要这么写：<code>\\</code>。</li>
+<li>无向图不要被题目<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span>的范围所迷惑，因为是建双向边，因此要开两倍空间！</li>
+<li>Tarjan求割边的时候不能在输入时确定父子关系，因为会导致一个点哪也取不了（都是它的父亲怎么走），所以要在遍历的时候再标记它在树上真正的父亲。</li>
+<li>对于取模的问题，一定要时时刻刻想着取模，<strong>加法要取模，乘法要取模</strong>！</li>
+<li>如果你在计算时没有加入<code>1ll*</code>的话，那么你的函数传参就要是<code>long long</code>，例如<code>void eval(node &amp;t,ll add,ll mul)</code></li>
+<li></li>
 </ol>
 <h1 id="问题"><a class="markdownIt-Anchor" href="#问题"></a> 问题</h1>
 <ol>
 <li>01BFS 为什么可以优化复杂度啊。 没有这种说法，01BFS是只有边权0和1的情况下对堆的一个优化，双端队列优化SPFA属于是玄学优化，任何SPFA都可以被卡成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mi>m</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(nm)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mord mathdefault">m</span><span class="mclose">)</span></span></span></span>。</li>
 <li>SPFA 什么情况下一个点会进队两次，出现了环吗？个人认为至少有弱连通环，比如一个点先被一条短点的路径遍历到了，然后又被一条长一点的路径遍历到了，这样就更新了两次。</li>
+<li>全排列</li>
+<li>Bitset</li>
+<li>Tarjan什么时候要判断自环和重边啊。</li>
+<li>为什么线性筛法时某个数一定是被它最小的质因子筛掉的。</li>
+<li><strong>exgcd</strong></li>
+<li>buildtin_popcount()</li>
+<li>桶</li>
+<li>前缀和</li>
+<li>位运算</li>
+<li><strong>线段树</strong></li>
+<li><strong>分块</strong></li>
+<li><strong>树链剖分</strong>（长链，重链）</li>
+<li>DFS 序</li>
+<li>Kosaraju</li>
+<li><strong>DP</strong></li>
+<li>树状数组</li>
+<li>树上倍增</li>
+<li>树上区间问题</li>
+<li>平衡树</li>
+<li>DP+单调队列优化</li>
+<li>BFS、DFS</li>
+<li>最小生成树</li>
+<li>最短路</li>
+<li>匈牙利</li>
+<li>邻接矩阵乘法</li>
+<li>点双</li>
+<li>边双</li>
+<li>树上差分</li>
+<li>圆方树</li>
+<li>哈密顿路</li>
+<li>DAG上DP</li>
+<li>DFS树</li>
+<li>倍增求LCA</li>
+<li>LCA深度和求解</li>
+<li>树形DP</li>
+<li>数位DP</li>
+<li>卢卡斯定理</li>
+<li>欧拉函数</li>
+<li>错排问题</li>
+<li>隔板法</li>
+<li>实际意义法</li>
+<li>翻折法</li>
+<li>KMP</li>
+<li>哈希</li>
+<li>马拉车</li>
+<li>Trie树</li>
+<li>01Trie</li>
+<li>树形背包</li>
+<li>可持久化Trie树</li>
+<li>可持久化线段树</li>
+<li>EXKMP</li>
+<li>基环树</li>
+<li>换根DP</li>
+<li>状压DP</li>
 </ol>
 
       </div>
@@ -223,7 +284,7 @@
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-              2023-07-21 20:07:56
+              2023-08-09 20:04:18
             </span>
             
                   <span class="post-categories">
@@ -274,7 +335,7 @@
     <div class="title">目录</div>
     <div class="catalog-content">
       
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%98%93%E9%94%99"><span class="toc-text"> 易错</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-text"> 问题</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8D%E7%9F%A5%E9%81%93%E6%94%BE%E5%93%AA%E9%87%8C%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-text"> 不知道放哪里的知识点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-text"> 问题</span></a></li></ol>
       
     </div>
   </div>
