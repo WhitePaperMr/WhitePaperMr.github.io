@@ -13,9 +13,9 @@
   
   <title>
     
-      Category 
+      导航页 
       
-       : Note
+      
       |
     
      FallingCode
@@ -114,30 +114,123 @@
 
 
       <div class="flex-container">
-        <!-- 标签详情页，展示某个标签下的文章列表，url形式：https://yoursite/tags/某个标签/ -->
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
 
-<div class="container category-details">
-  <div class="content-title">
-    <h2>
-      <span>Note</span>
-    </h2>
-  </div>
+
+  <!-- LaTex Display -->
+
   
-    <div class="post-list">
-      <div class="post-item" title="NOIP-DP">
-        <span class="time-m-d">2023-03-26</span>
-        <a href="/48659/">
-          <span>NOIP-DP</span>
-        </a>
+    <script async type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">导航页</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+          2023-09-03 19:51:43
+        </span>
+        
       </div>
+      <div class="markdown-body">
+        <h1 id="笔记"><a class="markdownIt-Anchor" href="#笔记"></a> 笔记</h1>
+<h2 id="图论"><a class="markdownIt-Anchor" href="#图论"></a> <a href="https://white.fallingsakura.love/34778/">图论</a></h2>
+<h2 id="dp"><a class="markdownIt-Anchor" href="#dp"></a> <a href="">DP</a></h2>
+<h2 id="基础算法"><a class="markdownIt-Anchor" href="#基础算法"></a> <a href="https://white.fallingsakura.love/af411f31/">基础算法</a></h2>
+<h2 id="数据结构"><a class="markdownIt-Anchor" href="#数据结构"></a> <a href="https://white.fallingsakura.love/668ad1af/">数据结构</a></h2>
+<h2 id="搜索"><a class="markdownIt-Anchor" href="#搜索"></a> <a href="https://white.fallingsakura.love/4213452576/">搜索</a></h2>
+<h2 id="数学"><a class="markdownIt-Anchor" href="#数学"></a> <a href="https://white.fallingsakura.love/915ab73/">数学</a></h2>
+<h2 id="字符串"><a class="markdownIt-Anchor" href="#字符串"></a> <a href="https://white.fallingsakura.love/3023808606/">字符串</a></h2>
+<h2 id="其它"><a class="markdownIt-Anchor" href="#其它"></a> <a href="https://white.fallingsakura.love/1814831403/">其它</a></h2>
+<h2 id="易错"><a class="markdownIt-Anchor" href="#易错"></a> <a href="https://white.fallingsakura.love/3490538010/">易错</a></h2>
+<h2 id="问答"><a class="markdownIt-Anchor" href="#问答"></a> <a href="https://white.fallingsakura.love/1346006967/">问答</a></h2>
+<h2 id="题解摘要"><a class="markdownIt-Anchor" href="#题解摘要"></a> <a href="https://white.fallingsakura.love/859461957/">题解摘要</a></h2>
+<h2 id="板子"><a class="markdownIt-Anchor" href="#板子"></a> <a href="https://white.fallingsakura.love/1635851251/">板子</a></h2>
+<h1 id="集训"><a class="markdownIt-Anchor" href="#集训"></a> 集训</h1>
+<h2 id="2023snoip营"><a class="markdownIt-Anchor" href="#2023snoip营"></a> <a href="https://white.fallingsakura.love/2265066537/">2023SNOIP营</a></h2>
+<h2 id="zrcsps七连"><a class="markdownIt-Anchor" href="#zrcsps七连"></a> <a href="https://white.fallingsakura.love/1653195351/">ZRCSPS七连</a></h2>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2203529418/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+              2023-09-03 19:51:43
+            </span>
+            
+          </div>
+          <div class="post-foot-prev">
+            
+          </div>
+        </div>
+      
     </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%94%E8%AE%B0"><span class="toc-text"> 笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E8%AE%BA"><span class="toc-text"> 图论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dp"><span class="toc-text"> DP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95"><span class="toc-text"> 基础算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-text"> 数据结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%9C%E7%B4%A2"><span class="toc-text"> 搜索</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6"><span class="toc-text"> 数学</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text"> 字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E5%AE%83"><span class="toc-text"> 其它</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%93%E9%94%99"><span class="toc-text"> 易错</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E7%AD%94"><span class="toc-text"> 问答</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3%E6%91%98%E8%A6%81"><span class="toc-text"> 题解摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%BF%E5%AD%90"><span class="toc-text"> 板子</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9B%86%E8%AE%AD"><span class="toc-text"> 集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2023snoip%E8%90%A5"><span class="toc-text"> 2023SNOIP营</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zrcsps%E4%B8%83%E8%BF%9E"><span class="toc-text"> ZRCSPS七连</span></a></li></ol></li></ol>
+      
+    </div>
+  </div>
+
   
-  <nav class="post-navigation">
+<script src="/js/catalog.js"></script>
+
+
+
+
     
-    <span class="page-num">1 / 1</span>
-    
-  </nav>
-</div>
+  </div>
+
 
         
 <div class="footer">
