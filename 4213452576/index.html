@@ -163,7 +163,7 @@
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-          2023-09-03 19:36:33
+          2023-09-10 12:41:49
         </span>
         
               <span class="post-categories">
@@ -185,13 +185,20 @@
           
       </div>
       <div class="markdown-body">
-        <h1 id="挖坑"><a class="markdownIt-Anchor" href="#挖坑"></a> 挖坑</h1>
-<h2 id="dfs"><a class="markdownIt-Anchor" href="#dfs"></a> DFS</h2>
-<h2 id="bfs"><a class="markdownIt-Anchor" href="#bfs"></a> BFS</h2>
-<h2 id="剪枝"><a class="markdownIt-Anchor" href="#剪枝"></a> 剪枝</h2>
+        <h1 id="dfsbfs"><a class="markdownIt-Anchor" href="#dfsbfs"></a> DFS&amp;BFS</h1>
+<blockquote>
+<p>广度优先搜索与深度优先搜索，这里不多赘述。</p>
+</blockquote>
+<p><strong>时间：</strong> 差不多，都高于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo>+</mo><mi>m</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n+m)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">m</span><span class="mclose">)</span></span></span></span></p>
+<p><strong>空间：</strong> BFS 空间消耗远大于 DFS，对于一个满二叉树，每出队一个节点，就会入队两个节点，在第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> 层时将会消耗 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>k</mi></msup></mrow><annotation encoding="application/x-tex">2^k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.849108em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span></span></span></span></span></span></span> 的空间，512MB 的空间最多只能到 29 层。</p>
+<p>总结：DFS 适合找任意可行解，BFS 适合找全局最优解。</p>
+<h1 id="剪枝"><a class="markdownIt-Anchor" href="#剪枝"></a> 剪枝</h1>
 <h2 id="迭代加深"><a class="markdownIt-Anchor" href="#迭代加深"></a> 迭代加深</h2>
 <h2 id="洪水填充"><a class="markdownIt-Anchor" href="#洪水填充"></a> 洪水填充</h2>
-<h2 id="a"><a class="markdownIt-Anchor" href="#a"></a> A*</h2>
+<h1 id="a"><a class="markdownIt-Anchor" href="#a"></a> A*</h1>
+<blockquote>
+<p>一种结合了 Dijkstra 和贪心最优原则的一种搜索算法。</p>
+</blockquote>
 <h1 id="爬山"><a class="markdownIt-Anchor" href="#爬山"></a> 爬山</h1>
 <p>在一个多峰函数上行走，每次可以走一小步，当且仅当向左和向右走都不是更优的时候，我就停下，否则就向更优的方向走。</p>
 <p>但是这样有一个问题，我们找到的“最优解”很可能是“局部最优解”。</p>
@@ -319,7 +326,7 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-              2023-09-03 19:36:33
+              2023-09-10 12:41:49
             </span>
             
                   <span class="post-categories">
@@ -359,7 +366,7 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
     <div class="title">目录</div>
     <div class="catalog-content">
       
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8C%96%E5%9D%91"><span class="toc-text"> 挖坑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#dfs"><span class="toc-text"> DFS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bfs"><span class="toc-text"> BFS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%AA%E6%9E%9D"><span class="toc-text"> 剪枝</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%AD%E4%BB%A3%E5%8A%A0%E6%B7%B1"><span class="toc-text"> 迭代加深</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B4%AA%E6%B0%B4%E5%A1%AB%E5%85%85"><span class="toc-text"> 洪水填充</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#a"><span class="toc-text"> A*</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%88%AC%E5%B1%B1"><span class="toc-text"> 爬山</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB"><span class="toc-text"> 模拟退火</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%8E%AB%E9%98%9F"><span class="toc-text"> 莫队</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-text"> 例题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E5%9D%97"><span class="toc-text"> 分块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A5%87%E5%81%B6%E6%80%A7%E6%8E%92%E5%BA%8F"><span class="toc-text"> 奇偶性排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%8B%E5%B8%B8"><span class="toc-text"> 压常</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E8%AF%BB%E5%BF%AB%E5%86%99"><span class="toc-text"> 快读&#x2F;快写</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E4%B8%8A%E8%8E%AB%E9%98%9F"><span class="toc-text"> 树上莫队</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9E%E6%BB%9A%E8%8E%AB%E9%98%9F"><span class="toc-text"> 回滚莫队</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#dfsbfs"><span class="toc-text"> DFS&amp;BFS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%AA%E6%9E%9D"><span class="toc-text"> 剪枝</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%AD%E4%BB%A3%E5%8A%A0%E6%B7%B1"><span class="toc-text"> 迭代加深</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B4%AA%E6%B0%B4%E5%A1%AB%E5%85%85"><span class="toc-text"> 洪水填充</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#a"><span class="toc-text"> A*</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%88%AC%E5%B1%B1"><span class="toc-text"> 爬山</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB"><span class="toc-text"> 模拟退火</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%8E%AB%E9%98%9F"><span class="toc-text"> 莫队</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-text"> 例题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E5%9D%97"><span class="toc-text"> 分块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A5%87%E5%81%B6%E6%80%A7%E6%8E%92%E5%BA%8F"><span class="toc-text"> 奇偶性排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%8B%E5%B8%B8"><span class="toc-text"> 压常</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E8%AF%BB%E5%BF%AB%E5%86%99"><span class="toc-text"> 快读&#x2F;快写</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E4%B8%8A%E8%8E%AB%E9%98%9F"><span class="toc-text"> 树上莫队</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9E%E6%BB%9A%E8%8E%AB%E9%98%9F"><span class="toc-text"> 回滚莫队</span></a></li></ol></li></ol>
       
     </div>
   </div>
