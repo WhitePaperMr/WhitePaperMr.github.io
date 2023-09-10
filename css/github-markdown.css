@@ -168,7 +168,7 @@
 .markdown-body code,
 .markdown-body kbd,
 .markdown-body pre {
-  font-family: monospace, monospace;
+  font-family: "ϼ���鿬", monospace;
   font-size: 1em;
 }
 
@@ -197,7 +197,7 @@
 }
 
 .markdown-body input {
-  font-family: inherit;
+  font-family: "ϼ���鿬";
   font-size: inherit;
   line-height: inherit;
 }
@@ -323,7 +323,7 @@
 }
 
 .markdown-body code {
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier,
+  font-family: "ϼ���鿬", Consolas, "Liberation Mono", Menlo, Courier,
     monospace;
   font-size: 12px;
 }
@@ -331,7 +331,7 @@
 .markdown-body pre {
   margin-top: 0;
   margin-bottom: 0;
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier,
+  font-family: "ϼ���鿬", Consolas, "Liberation Mono", Menlo, Courier,
     monospace;
   font-size: 12px;
 }
