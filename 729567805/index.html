@@ -163,7 +163,7 @@
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-          2023-07-12 17:15:15
+          2024-03-13 12:16:51
         </span>
         
               <span class="post-categories">
@@ -193,14 +193,14 @@
                 </span>
                 
                 <span class="span--tag mr-8">
-                  <a href="/tags/ST/" title="ST">
-                    #ST
+                  <a href="/tags/%E8%B4%AA%E5%BF%83/" title="贪心">
+                    #贪心
                   </a>
                 </span>
                 
                 <span class="span--tag mr-8">
-                  <a href="/tags/%E8%B4%AA%E5%BF%83/" title="贪心">
-                    #贪心
+                  <a href="/tags/ST/" title="ST">
+                    #ST
                   </a>
                 </span>
                 
@@ -262,7 +262,7 @@
 <p>右端点在区间<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">[</mo><mi>l</mi><mo separator="true">,</mo><mi>r</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[l,r]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mclose">]</span></span></span></span>的范围内，使<code>sum[p]</code>最大，那么这段区间和也就最大。</p>
 <p>求某段区间某个元素的最大值？</p>
 <ul>
-<li><a href="https://white.fallingsakura.love/af411f31/#st">RMQ</a></li>
+<li><a href="https://white.fallingsakura.top/af411f31/#st">RMQ</a></li>
 </ul>
 <p>设求出的最大右端点为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span></span></span></span>（<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span></span></span></span>作为<code>sum</code>数组的下标，比较依据是<strong>前缀和</strong>，储存的是<strong>下标</strong>），</p>
 <p>每求出一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">[</mo><mi>o</mi><mo separator="true">,</mo><mi>p</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[o,p]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault">o</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">p</span><span class="mclose">]</span></span></span></span>的最优区间，就把它丢到优先队列里，这里需要一个结构体来储存区间信息，虽然对于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>o</mi></mrow><annotation encoding="application/x-tex">o</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">o</span></span></span></span>这个左端点来说<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span></span></span></span>这个右端点是最优的，但是在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">[</mo><mi>l</mi><mo separator="true">,</mo><mi>r</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[l,r]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mclose">]</span></span></span></span>范围内一定存在<em>次优，次次优</em>的右端点，而这些区间可能会比其它的左端点的最优解还优，因此还需要把剩下的右端点范围也放入考虑范围。</p>
@@ -360,7 +360,7 @@ priority_queue<span class="token operator">&lt;</span>range<span class="token op
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-              2023-07-12 17:15:15
+              2024-03-13 12:16:51
             </span>
             
                   <span class="post-categories">
@@ -390,14 +390,14 @@ priority_queue<span class="token operator">&lt;</span>range<span class="token op
                     </span>
                     
                     <span class="span--tag mr-8">
-                      <a href="/tags/ST/" title="ST">
-                        #ST
+                      <a href="/tags/%E8%B4%AA%E5%BF%83/" title="贪心">
+                        #贪心
                       </a>
                     </span>
                     
                     <span class="span--tag mr-8">
-                      <a href="/tags/%E8%B4%AA%E5%BF%83/" title="贪心">
-                        #贪心
+                      <a href="/tags/ST/" title="ST">
+                        #ST
                       </a>
                     </span>
                     
@@ -467,7 +467,7 @@ priority_queue<span class="token operator">&lt;</span>range<span class="token op
     
     <div class="footer-more">
       
-        <a target="_blank" rel="noopener" href="https://fallingsakura.love">Copyright © 2023 FallingSakura</a>
+        <a target="_blank" rel="noopener" href="https://fallingsakura.top">Copyright © 2024 FallingSakura</a>
         
     </div>
   
